@@ -2,23 +2,24 @@
   "version": 1,
   "artifact": "nerveloop-runtime-boundary",
   "createdAt": "2026-09-01T03:03:23Z",
+  "updatedAt": "2026-09-01T03:34:00Z",
   "role": "standalone-unpromoted-judge-architecture-candidate",
   "sourceCommit": "16f04073bd46e42b3b0284120da14230d82af8c7",
   "files": {
     "svg": {
       "path": "research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.svg",
-      "sha256": "555f9ef3a9f3cdccf136278655375aca8be24d9354a6d9157da339b8d83c6382",
+      "sha256": "0c07e5528e103fcf0cea9ac5c9e4f480d2f4912b30f1a2750b7267bd3eef6621",
       "width": 1920,
       "height": 1080,
       "xmlParsed": true
     },
     "png": {
       "path": "research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.png",
-      "sha256": "f1c43c6537945e561894ea832bb2f6b96d4761689ffeeb63b2cb9b019b1b7c37",
+      "sha256": "085cd0e0fddd62a4c02bc666360fcd6fbc850c94bb4a4a847a6484613c4a3dee",
       "width": 1920,
       "height": 1080,
       "format": "png",
-      "visualInspection": "original-resolution; two lanes, threat asset, terminal states, legend and open gate legible; no observed clipping"
+      "visualInspection": "original-resolution; two lanes, threat asset, distinct prevention and successful-recovery branches, failed recovery held for operator and not connected to ready, legend and open gate legible; no observed clipping or causal branch merge"
     }
   },
   "sourceBindings": {

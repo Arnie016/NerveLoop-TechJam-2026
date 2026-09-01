@@ -175,19 +175,38 @@
 
         <g transform="translate(0 336)">
           <rect width="860" height="110" rx="15" fill="#12171a" stroke="#53636b"/>
-          <text x="20" y="28" class="mono tiny" fill="#9aabb2">JUDGE-VISIBLE TERMINAL STATE</text>
-          <g transform="translate(20 45)">
-            <rect width="158" height="42" rx="10" fill="#29161b" stroke="#ff6270"/>
-            <text x="79" y="26" text-anchor="middle" class="mono tiny" fill="#ff8f98">BLOCKED / DENIED</text>
-            <path d="M158 21H196" stroke="#84939a" marker-end="url(#arrowAmber)"/>
-            <rect x="202" width="166" height="42" rx="10" fill="#211d16" stroke="#f2b94b"/>
-            <text x="285" y="26" text-anchor="middle" class="mono tiny" fill="#f7cc78">OUTPUT WITHHELD</text>
-            <path d="M368 21H406" stroke="#84939a" marker-end="url(#arrowAmber)"/>
-            <rect x="412" width="176" height="42" rx="10" fill="#14241e" stroke="#55d59b"/>
-            <text x="500" y="26" text-anchor="middle" class="mono tiny" fill="#7be3b2">CLEANED / RESTORED</text>
-            <path d="M588 21H626" stroke="#84939a" marker-end="url(#arrowAmber)"/>
-            <rect x="632" width="188" height="42" rx="10" fill="#142426" stroke="#42e8df"/>
-            <text x="726" y="26" text-anchor="middle" class="mono tiny" fill="#7cf1eb">SAME AGENT READY</text>
+          <text x="18" y="21" class="mono tiny" fill="#9aabb2">JUDGE-VISIBLE ALTERNATIVE TERMINALS  /  NEVER ONE CHAIN</text>
+
+          <g transform="translate(14 32)">
+            <rect width="108" height="30" rx="8" fill="#182329" stroke="#45636c"/>
+            <text x="54" y="20" text-anchor="middle" class="mono tiny" fill="#9fc1ca">A  PREVENTION</text>
+            <rect x="130" width="112" height="30" rx="8" fill="#29161b" stroke="#ff6270"/>
+            <text x="186" y="20" text-anchor="middle" class="mono tiny" fill="#ff8f98">DENIED</text>
+            <text x="252" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="270" width="172" height="30" rx="8" fill="#22191c" stroke="#ff786c"/>
+            <text x="356" y="20" text-anchor="middle" class="mono tiny" fill="#ffaaa3">WORKER NEVER STARTED</text>
+            <text x="452" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="470" width="150" height="30" rx="8" fill="#14241e" stroke="#55d59b"/>
+            <text x="545" y="20" text-anchor="middle" class="mono tiny" fill="#7be3b2">ASSET UNCHANGED</text>
+            <text x="630" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="648" width="174" height="30" rx="8" fill="#142426" stroke="#42e8df"/>
+            <text x="735" y="20" text-anchor="middle" class="mono tiny" fill="#7cf1eb">SAME AGENT READY</text>
+          </g>
+
+          <g transform="translate(14 68)">
+            <rect width="108" height="30" rx="8" fill="#282318" stroke="#8c7040"/>
+            <text x="54" y="20" text-anchor="middle" class="mono tiny" fill="#e6c57e">B  RECOVERY</text>
+            <rect x="130" width="144" height="30" rx="8" fill="#24191b" stroke="#d75d68"/>
+            <text x="202" y="20" text-anchor="middle" class="mono tiny" fill="#ef9098">ADMITTED FAILURE</text>
+            <text x="284" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="302" width="142" height="30" rx="8" fill="#211d16" stroke="#f2b94b"/>
+            <text x="373" y="20" text-anchor="middle" class="mono tiny" fill="#f7cc78">OUTPUT WITHHELD</text>
+            <text x="454" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="472" width="148" height="30" rx="8" fill="#14241e" stroke="#55d59b"/>
+            <text x="546" y="20" text-anchor="middle" class="mono tiny" fill="#7be3b2">RESTORED</text>
+            <text x="630" y="20" class="mono tiny" fill="#73838a">&gt;</text>
+            <rect x="648" width="174" height="30" rx="8" fill="#142426" stroke="#42e8df"/>
+            <text x="735" y="20" text-anchor="middle" class="mono tiny" fill="#7cf1eb">SAME AGENT READY</text>
           </g>
         </g>
       </g>

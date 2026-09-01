@@ -24,8 +24,8 @@ rollback, and retained a later safe Run. The 156-second review candidate adds a
 browser-to-API-to-AgentService-to-FixtureRunner path.
 
 The design combines a monotone action-target policy with an opaque, one-use
-grant bound to one Run, Agent, file, and payload. Across 156 cases and
-sequences, all 28 denied admission cases had zero worker dispatch, while 36/36
+grant bound to one Run, Agent, file, and payload. Across a 156-case/sequence
+matrix, all 28 denied admission cases had zero worker dispatch, while 36/36
 protected-path mutations were detected and restored. Five of six
 recovery-timing faults restored; removing the workspace parent produced the
 expected recovery-failed receipt.
@@ -38,8 +38,9 @@ separate, inspectable facts.
 
 ## Official Track
 
-**Problem Statement #1: Agent Launchpad. Selected middleware track: Track C —
-The Kill Switch (Safety and Sandboxing).**
+**Official challenge: Problem Statement #1 — Agent Launchpad: Design and Build
+Lightweight Agent Middleware. Selected subtrack: Track C — The Kill Switch
+(Safety and Sandboxing).**
 
 ## The Result in 30 Seconds
 
@@ -328,8 +329,8 @@ starter's `AgentService` and Run lifecycle as the integration seam, then adds
 typed effect admission, one-use authority, an exact cooperative sink, causal
 receipts, and bounded recovery around that flow.
 
-The `track-c` text in filenames refers to the selected official middleware
-track, Track C — The Kill Switch.
+The `track-c` text in filenames refers to the selected subtrack, Track C — The
+Kill Switch, within official Problem Statement #1: Agent Launchpad.
 
 ## Public Demo Link
 
@@ -364,10 +365,10 @@ exact clean bundle. The capture records 489 real compositor frames, averages
 28.576 observed frames per second, and transparently holds the latest observed
 frame on a 60 fps output grid. The combined film is encoded at 24 fps with the
 existing audio bed. A duplicated excerpt from that bed removes the first
-continuous experiment's 16.141-second silent gap; automated checks found no
-clipping, audio-timestamp discontinuity, or silence of at least 0.25 seconds.
-It passed full audio/video machine decode and still needs continuous human
-playback, rights review, and an explicit promotion decision.
+continuous experiment's 16.141-second silent gap. The retained receipt records
+-22.6 LUFS integrated loudness, -9.2 dBTP true peak, and no silence of at least
+0.25 seconds. It passed full audio/video machine decode and still needs
+continuous human playback, rights review, and an explicit promotion decision.
 Its exact human voiceover map is in
 [`research/2026-09-01-continuous-candidate-voiceover.md`](research/2026-09-01-continuous-candidate-voiceover.md);
 no voice was generated or recorded in this pass.
@@ -421,7 +422,7 @@ details, and final Devpost action remain open.
 
 - Team name and team-leader email: entrant-provided
 - Registration confirmation: entrant-confirmed
-- Problem statement: #1 Agent Launchpad, Track C — The Kill Switch
+- Problem statement: #1 Agent Launchpad; selected subtrack Track C — The Kill Switch
 - Public repository: current source push pending
 - Public YouTube URL: pending
 - Public demo URL: pending

@@ -27,10 +27,10 @@ mix review against the exact export.
 |---|---|---|
 | 00:00.000–00:07.500 | Useful work gives way to a risky next request. | “An agent can do useful work, then ask for one action that should never happen.” |
 | 00:09.350–00:17.500 | Host and agent boundary. | “NerveLoop keeps that decision outside the agent. The agent proposes; the host decides what may run.” |
-| 00:19.700–00:23.000 | Exact-bundle Web UI; Agent creation and normal Run. | “This is the exact clean bundle, running locally with a deterministic, no-model fixture.” |
-| 00:23.150–00:26.900 | Protected proposal and pre-dispatch receipt. | “The protected delete is denied before dispatch. The worker never starts, and the asset stays unchanged.” |
-| 00:27.050–00:31.000 | Separate admitted fault and RunGuard receipt. | “Now a different fault runs. RunGuard detects the drift, withholds the output, and restores the checkpoint.” |
-| 00:31.150–00:35.800 | Later-safe receipt on the same Agent. | “The same Agent remains ready and retains later-safe work. We remove the unsafe effect, not the useful session.” |
+| 00:19.700–00:23.000 | Exact-bundle Web UI; Agent creation and normal Run. | “Exact bundle. Local, deterministic, no model.” |
+| 00:23.150–00:26.900 | Protected proposal and pre-dispatch receipt. | “Protected delete denied before dispatch. Worker never starts.” |
+| 00:27.050–00:31.000 | Separate admitted fault and RunGuard receipt. | “RunGuard catches drift, withholds output, and restores the checkpoint.” |
+| 00:31.150–00:35.800 | Later-safe receipt on the same Agent. | “The same Agent stays ready and retains later-safe work.” |
 | 00:36.817–00:43.717 | Typed proposal. | “The fixture becomes a typed action and target. Unknown or extra fields fail closed.” |
 | 00:47.517–00:53.517 | Monotone authority gate. | “The rule is small and monotone: greater risk can narrow authority, never widen it.” |
 | 01:00.917–01:08.217 | Causal receipt. | “The receipt separates prevention from repair: zero worker dispatch, zero changed files, and no rollback disguised as prevention.” |
@@ -38,7 +38,7 @@ mix review against the exact export.
 | 01:22.617–01:30.517 | RunGuard procedural scene. | “If admitted work crosses scope, RunGuard verifies, restores, or holds before another Run.” |
 | 01:34.917–01:43.417 | Architecture. | “Policy decides. A one-use grant limits the cooperative sink. RunGuard checks the result.” |
 | 01:48.317–01:58.917 | Six-round comparison. | “Across six local rounds, reset-all touched thirty-two logical paths, prevention touched zero, and bounded rollback touched one. Those are path counts, not speed.” |
-| 02:02.617–02:09.817 | Adversarial matrix. | “The wider matrix exercises policy denial, protected drift, recovery faults, and later-safe continuation across one hundred fifty-six local cases and sequences.” |
+| 02:02.617–02:09.817 | Adversarial matrix. | “The one-hundred-fifty-six-case matrix spans policy denial, protected drift, recovery faults, and safe continuation.” |
 | 02:15.017–02:24.217 | Proof boundary. | “The real Runtime already has checkpoint and rollback, but typed pre-dispatch control has not been proven with Ark or a model.” |
 | 02:25.417–02:33.917 | Closing principle. | “What we prove is narrower and useful: prevention, recovery, and safe continuation are three different facts.” |
 

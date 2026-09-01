@@ -12,10 +12,13 @@ The diagram separates two architectures that must not be presented as one:
   post-run RunGuard verification/recovery. The flagship has not executed this
   lane with Ark and has not demonstrated worker termination.
 
-The terminal-state row mirrors existing receipt-driven UI states: denied,
-output withheld, checkpoint restored, and same Agent ready. The open red gate
-is deliberately conspicuous so an implementation path cannot be mistaken for
-provider-backed proof.
+The terminal-state panel renders two alternatives rather than one misleading
+sequence. Prevention ends `denied -> worker never started -> asset unchanged ->
+same Agent ready`. A separately admitted failure ends `output withheld ->
+restored -> same Agent ready`. If recovery fails, the run remains held for an
+operator and does not reconnect to the ready state. The open red gate is deliberately
+conspicuous so an implementation path cannot be mistaken for provider-backed
+proof.
 
 ## Files
 
@@ -28,8 +31,8 @@ provider-backed proof.
 - SVG parsed successfully with `xmllint --noout`.
 - PNG reports 1920 x 1080 RGBA through `sips` and `file`.
 - The PNG was visually inspected at original resolution: the two lanes, threat
-  asset, terminal states, legend, and open acceptance gate are legible with no
-  observed clipping.
+  asset, two alternative terminal branches, legend, and open acceptance gate
+  are legible with no observed clipping.
 
 This artifact does not prove an Ark/model-backed Agent Run, observed worker
 termination, hostile-process isolation, production security, TikTok access,
