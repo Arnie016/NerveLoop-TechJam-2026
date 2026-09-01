@@ -152,7 +152,7 @@ The exact no-video source selection is [TRACK1_PUBLIC_SOURCE_CLOSURE.txt](docs/T
 - `scripts/effect-firewall-adversarial-matrix.mjs`: lattice, parser and mutation checks.
 - `scripts/effect-sink-redemption-lab.mjs`: adversarial sink-authority attenuation experiment.
 - `scripts/verify-track1-final-readiness.mjs`: fail-closed source/media readiness contract.
-- [Devpost draft](devpost-submission.md): human-readable project story and open gates.
+- [Devpost copy](devpost-submission.md): the submission story, evidence and remaining publication gates.
 
 ## Proof boundary
 
@@ -160,7 +160,14 @@ This repository proves a deterministic local middleware fixture. It mediates one
 
 Both process-local authority registries are capped at 1,024 entries and do not yet reclaim terminal entries. Issuance fails closed at that ceiling, which makes this a demo availability limit rather than a production lifecycle design.
 
-The current 139.875-second H.264/AAC candidate is local and machine-verified, but continuous human playback, public YouTube upload and Devpost completion remain separate gates. Its twelve scenes are generated as procedural pixel plates: the renderer imports no screenshots or images and does not resolve an operating-system font. It parses the vendored [`font8x8_basic.h`](research/evidence/2026-09-01-provenance-cleared-media-experiment/font8x8_basic.h) glyph table pinned to upstream commit `8e279d2d864e79128e96188a6b9526cfa3fbfef9`. The upstream project declares that table Public Domain; this repository records that declaration and its exact header hash, but does not claim an independent legal adjudication. The stable 159-second video is an older fallback that predates and does not reflect the final Effect Firewall-first story.
+The current upload package uses a 156.000-second H.264/AAC cut with sixteen
+burned-in captions. Its full audio/video decode passed, and its audio stream is
+byte-identical to the locally synthesized source bed. Continuous human playback
+and public YouTube upload remain separate gates. The TikTok TechJam project was
+submitted to Devpost before the deadline; this repository does not claim that a
+later portfolio-page edit changes the frozen hackathon submission. The stable
+159-second video remains an older fallback that predates and does not reflect
+the final Effect Firewall-first story.
 
 NerveLoop does not claim to invent reference monitors, capabilities or transaction recovery. Its contribution is their small, observable composition for long-horizon agents: deny a typed unsafe effect before dispatch, recover admitted drift after execution, and preserve the same Agent when later work is safe.
 

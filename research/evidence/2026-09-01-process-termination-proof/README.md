@@ -20,27 +20,27 @@ node --check run-process-termination-proof.mjs
 node ./run-process-termination-proof.mjs
 ```
 
-All three commands exited successfully. The experiment ran from
-`2026-09-01T03:43:13.212Z` through `2026-09-01T03:43:13.641Z` with Node
-`/opt/homebrew/Cellar/node/25.8.2/bin/node`.
+All three commands exited successfully. The distributed public receipt removes
+machine-specific executable paths, checkout paths, PIDs and the per-run nonce.
+Its `derivedFromPrivateReceiptSha256` field binds it to the retained private raw
+receipt without publishing those local identifiers.
 
 ## Observed lifecycle
 
 | Stage | Exact observation |
 |---|---|
-| Spawn | Parent PID `91631` spawned one non-detached child, PID `91655`, with nonce `procproof-a150c199-219c-45de-99fa-8642ab6ef6c3`. |
-| Pre-SIGTERM identity | ChildProcess PID, spawnfile, script argv, nonce argv, IPC challenge PID, and reported parent PID all matched; `process.kill(91655, 0)` found it alive. |
+| Spawn | One parent spawned one non-detached, nonce-bound child. |
+| Pre-SIGTERM identity | ChildProcess identity, spawnfile, script argv, nonce argv, IPC challenge and reported parent all matched; the zero-signal probe found the child alive. |
 | Graceful request | Parent called `child.kill('SIGTERM')`; the exact child reported one observed SIGTERM and deliberately stayed alive. |
 | Bounded wait | Child did not exit during the `350 ms` escalation window. |
-| Pre-SIGKILL identity | A fresh IPC challenge again matched PID `91655`, parent PID `91631`, nonce, spawnfile, and argv; SIGTERM count was `1`. |
+| Pre-SIGKILL identity | A fresh IPC challenge again matched child, parent, nonce, spawnfile and argv; SIGTERM count was `1`. |
 | Escalation | Only after that second identity proof, parent called `child.kill('SIGKILL')` on its existing ChildProcess handle. |
 | Exit | Node emitted the child's exit event with `code: null` and `signal: SIGKILL`. |
-| No-orphan check | The exact PID probe returned `ESRCH`; PID `91655` was no longer alive. |
+| No-orphan check | The exact child probe returned `ESRCH`; the owned child was no longer alive. |
 
-The append-only machine receipt is [`receipt.jsonl`](receipt.jsonl). It records
-the exact spawn API, signal APIs, PIDs, nonce, timestamps, timeouts, identity
-checks, exit result, and proof boundary. This run appended one JSON object and
-did not truncate an earlier receipt.
+The public receipt is [`receipt.jsonl`](receipt.jsonl). It records the bounded
+result and proof boundary while explicitly listing its redactions. The retained
+private receipt contains the raw machine identifiers and is bound by SHA-256.
 
 ## Safety construction
 
@@ -74,6 +74,6 @@ standalone script and is not Ark or provider-backed proof.
 ## Reproduction and checksum note
 
 Running `node ./run-process-termination-proof.mjs` again creates a new nonce,
-spawns only the new run's child, and appends another receipt line. Because the
-receipt is append-only, any rerun intentionally changes its checksum; regenerate
-`SHA256SUMS.txt` before distributing a later evidence snapshot.
+spawns only the new run's child, and appends a new private receipt line. Produce
+a fresh public summary and regenerate `SHA256SUMS.txt` before distributing a
+later evidence snapshot.

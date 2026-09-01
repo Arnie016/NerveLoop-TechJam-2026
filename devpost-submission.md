@@ -6,40 +6,36 @@ Remove the unsafe effect, not the useful agent.
 
 ## Paste-Ready Human Story
 
-We began with a mistake. Our prototype let a dangerous action run, rolled back
-the damage, and called that prevention. It was not. A clean workspace cannot
-tell a judge whether an effect never happened or was repaired later.
+Picture a coding agent that has been useful for an hour. Then its next action is
+to delete something protected. Most systems leave you with two blunt choices:
+trust the agent, or stop the whole session.
 
-NerveLoop grew from that distinction. It is Track C middleware between agent
-intent and a repository worker. For the staged protected delete, host policy
-refuses authority before dispatch: no worker, no capability, no changed files,
-and matching manifests. If admitted work bypasses the cooperative sink,
-RunGuard withholds its output and restores the checkpoint. The same local Agent
-record can run safely again.
+NerveLoop adds a third option. The agent may propose the action, but a rule
+owned by the host application decides whether a worker may start. In the demo,
+a protected delete is rejected before dispatch. No capability is issued, no
+worker starts, and no file changes.
 
-From a clean clone of the exact final bundle, we created an Agent in the Web
-UI, retained normal work, triggered the protected denial, showed a separate
-rollback, and retained a later safe Run. The 156-second review candidate adds a
-17.1-second continuous Chrome compositor capture of that functional
-browser-to-API-to-AgentService-to-FixtureRunner path.
-The rollback is preserved in its dedicated frame and receipt; the manifest's
-final DOM query runs after the later-safe view and therefore reports
-`rollbackObserved:false`, so we do not present it as a final-DOM assertion.
+Recovery is shown separately. A permitted worker is deliberately allowed to
+write outside its declared scope. RunGuard detects that drift, restores the
+bounded checkpoint and withholds the output. The same Agent then completes a
+later safe Run. "The bad action never ran" and "the damage was repaired" are
+different results, so NerveLoop records them separately.
 
-The design combines a monotone action-target policy with an opaque, one-use
-grant bound to one Run, Agent, file, and payload. Across a 156-case/sequence
-matrix, all 28 denied admission cases had zero worker dispatch, while 36/36
-protected-path mutations were detected and restored. Five of six
-recovery-timing faults restored; removing the workspace parent produced the
-expected recovery-failed receipt.
+Across 156 deterministic local cases and sequences, all 28 denied admissions
+dispatched zero workers and all 36 protected-path mutations were detected and
+restored. Across six repeated runs, reset-all touched a median of 32 logical
+targets, prevention touched 0 and bounded rollback touched 1.
 
-The flagship uses `DEMO_RUNNER=1` and makes zero provider calls; it does not yet
-prove the required Ark/model-backed local Runtime Agent run. These are
-synthetic local outcomes, not performance or production-security claims. Our
-contribution is making prevention, recovery, and safe continuation three
-separate, inspectable facts.
+This is a working local fixture, not a production sandbox. It uses a fixed
+no-model runner and makes no Ark or provider calls. It does not prove hostile
+process isolation, TikTok access, model quality or performance gains. The claim
+is deliberately narrower: known forbidden work is denied before dispatch,
+admitted drift is restored after execution, and later safe work can continue on
+the same Agent.
 
 ## Official Track
+
+**Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware**
 
 **Official challenge: Problem Statement #1 — Agent Launchpad: Design and Build
 Lightweight Agent Middleware. Selected subtrack: Track C — The Kill Switch
