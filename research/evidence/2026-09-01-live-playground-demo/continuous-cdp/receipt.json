@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "status": "local_review_candidate_not_submitted",
+  "source": {
+    "commit": "16f04073bd46e42b3b0284120da14230d82af8c7",
+    "bundle": "nerveloop-track1-16f0407-final.bundle",
+    "bundleSha256": "f65c267865048c4e8e5d8a24a08c45f0b020f4871b0250826562828ba0404a14"
+  },
+  "browserCapture": {
+    "file": "nerveloop-exact-bundle-cdp-60fps.mp4",
+    "sha256": "be54b39b017441212da5880f78b808418c71d77919bd38b039d576ad1daf255a",
+    "method": "Chrome DevTools Protocol Page.startScreencast",
+    "durationSeconds": 17.116667,
+    "width": 1920,
+    "height": 1080,
+    "codec": "h264",
+    "pixelFormat": "yuv420p",
+    "outputFramesPerSecond": 60,
+    "outputFrames": 1027,
+    "rawFrames": 489,
+    "rawObservedFramesPerSecond": 28.576151400307022,
+    "timestampsStrictlyIncreasing": true,
+    "fullDecodePassed": true,
+    "audio": false,
+    "browserPixelsOnly": true,
+    "programmaticallyDriven": true
+  },
+  "observedFlow": [
+    "Agent created",
+    "normal workspace-scoped Run retained",
+    "typed protected effect denied before dispatch with worker never started",
+    "separate RunGuard denial visibly reports verified restore and output withheld",
+    "later safe Run retained on the same Agent record"
+  ],
+  "assertionCaveat": {
+    "rawManifestRollbackObserved": false,
+    "reason": "the final-body query occurred after the later-safe view replaced the intermediate rollback body",
+    "preservedVisualFrame": "03-runguard-verified-restore.jpg",
+    "preservedVisualFrameSha256": "f217c14f832a7e040a647fe2eff0352098316ab956b4ef35326371533deee40f"
+  },
+  "combinedCandidate": {
+    "file": "../nerveloop-continuous-exact-bundle-live-agent-demo-candidate-audiobed.mp4",
+    "sha256": "46a67fb7cb5825ddd26f86a78c21611143ec1e21db848a16ea9b53df1dd58041",
+    "durationSeconds": 156.0,
+    "width": 1920,
+    "height": 1080,
+    "video": "h264 24fps yuv420p",
+    "audio": "aac 48000Hz stereo",
+    "fullDecodePassed": true,
+    "silenceAtLeast250MillisecondsDetected": false,
+    "integratedLoudnessLufs": -22.6,
+    "truePeakDbtp": -9.2,
+    "audioBedSource": "duplicated excerpt from existing procedural candidate with 0.5-second crossfades",
+    "continuousHumanPlaybackReviewComplete": false,
+    "rightsReviewComplete": false,
+    "promoted": false
+  },
+  "supersededSilentCandidate": {
+    "file": "../nerveloop-continuous-exact-bundle-live-agent-demo-candidate.mp4",
+    "sha256": "6015f3db94a9c5e0178c31845af6ab0ed679cb1deb21207f3a797dd5fd83c67c",
+    "reason": "the browser insert is silent for 16.141 seconds"
+  },
+  "preservedInputs": {
+    "selectedProceduralCandidateSha256": "1884b05ad3e8350c8e4b0aa8322d1b47388f1ff9392f7be985cc73467b8df36e",
+    "privateFallbackSha256": "ed34f33a709719569806e21fdc738cca7b6e9c3a5aeda00860e84f1e6ecca2c7",
+    "overwritten": false
+  },
+  "externalActions": [],
+  "proofBoundary": [
+    "DEMO_RUNNER=1 deterministic no-model fixture",
+    "no Ark or model-backed Runtime execution",
+    "no observed worker termination proof",
+    "no TikTok access or production claim",
+    "no public upload or Devpost submission"
+  ]
+}

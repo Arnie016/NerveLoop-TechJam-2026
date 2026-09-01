@@ -1,0 +1,992 @@
+{
+  "schemaVersion": "nerveloop.deep-containment-matrix.v1",
+  "status": "PASS",
+  "source": {
+    "commit": "16f04073bd46e42b3b0284120da14230d82af8c7",
+    "trackedFiles": 104,
+    "bindings": {
+      "apps/server/src/agent-service.ts": "39276855c84da2a961d799230b61edaee9726ff4d7112d273bb6c2262f08de32",
+      "apps/server/src/effect-policy.ts": "7eb29b20515dc0720c9fafcf09942e5226b0bb9a793dbaba19d97fb79c1d164c",
+      "apps/server/src/effect-capability.ts": "31c6e3c98782015c4a412da0368bb1de0cd7ffcee0b8e55ffeba14eb17504164",
+      "apps/server/src/effect-sink.ts": "dee279b9629134c001a169953c205b97b5b1b2cd30e3b4bcf2774c8feef946ac",
+      "apps/server/src/run-guard.ts": "2f7df4f07cb7b1cabe050941c8bed9934ee8d3c7c44a6f1c9d781632658d27c7",
+      "apps/server/src/fixture-runner.ts": "2cff0b18be2803bffde2835d74362ffcbff401beff51414b5e3ac5dd73113813",
+      "scripts/track-c-condition-benchmark.mjs": "bd99a089a1237212c8527204f26b794805b8593a18bad38042f01913cb091736"
+    }
+  },
+  "experiment": {
+    "repositorySizes": {
+      "sizeCells": 4,
+      "measuredSequences": 72,
+      "executedSequencesIncludingWarmup": 84,
+      "outcomeGateFailures": 0,
+      "aggregate": {
+        "reset": {
+          "logicalRecoveryTargetsAcrossSizeCells": {
+            "count": 24,
+            "p50": 16,
+            "p95": 128,
+            "min": 4,
+            "max": 128
+          },
+          "perSizeSequenceP50Ms": {
+            "count": 4,
+            "p50": 16.661167000000205,
+            "p95": 53.25854199999958,
+            "min": 12.778250000000298,
+            "max": 53.25854199999958
+          },
+          "perSizeSequenceP95Ms": {
+            "count": 4,
+            "p50": 18.369708000000173,
+            "p95": 57.21891600000163,
+            "min": 13.856249999999818,
+            "max": 57.21891600000163
+          }
+        },
+        "effect": {
+          "logicalRecoveryTargetsAcrossSizeCells": {
+            "count": 24,
+            "p50": 0,
+            "p95": 0,
+            "min": 0,
+            "max": 0
+          },
+          "perSizeSequenceP50Ms": {
+            "count": 4,
+            "p50": 264.05583299999944,
+            "p95": 336.03229199999987,
+            "min": 255.1687920000004,
+            "max": 336.03229199999987
+          },
+          "perSizeSequenceP95Ms": {
+            "count": 4,
+            "p50": 284.03362500000003,
+            "p95": 344.88066699999763,
+            "min": 270.7832920000001,
+            "max": 344.88066699999763
+          }
+        },
+        "rollback": {
+          "logicalRecoveryTargetsAcrossSizeCells": {
+            "count": 24,
+            "p50": 1,
+            "p95": 1,
+            "min": 1,
+            "max": 1
+          },
+          "perSizeSequenceP50Ms": {
+            "count": 4,
+            "p50": 310.7700420000001,
+            "p95": 395.00433300000077,
+            "min": 310.67549999999983,
+            "max": 395.00433300000077
+          },
+          "perSizeSequenceP95Ms": {
+            "count": 4,
+            "p50": 328.44295799999963,
+            "p95": 409.77200000000084,
+            "min": 324.5587080000005,
+            "max": 409.77200000000084
+          }
+        }
+      },
+      "reports": [
+        {
+          "label": "tiny",
+          "baselineFiles": 4,
+          "bytesPerFile": 32,
+          "measuredSequences": 18,
+          "executedSequencesIncludingWarmup": 21,
+          "wallMs": 4635.567042000001,
+          "conditions": {
+            "reset": {
+              "detection": 0,
+              "dispatch": 1,
+              "safeRetention": 0,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 4,
+                "p95": 4,
+                "min": 4,
+                "max": 4
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 12.778250000000298,
+                "p95": 13.856249999999818,
+                "min": 11.579458999999588,
+                "max": 13.856249999999818
+              }
+            },
+            "effect": {
+              "detection": 1,
+              "dispatch": 0,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 0,
+                "p95": 0,
+                "min": 0,
+                "max": 0
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 255.1687920000004,
+                "p95": 270.7832920000001,
+                "min": 248.29766599999994,
+                "max": 270.7832920000001
+              }
+            },
+            "rollback": {
+              "detection": 1,
+              "dispatch": 1,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 1,
+                "p95": 1,
+                "min": 1,
+                "max": 1
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 310.67549999999983,
+                "p95": 324.5587080000005,
+                "min": 305.7494590000001,
+                "max": 324.5587080000005
+              }
+            }
+          },
+          "outcomeGates": {
+            "effect": true,
+            "rollback": true,
+            "defenseInDepth": true
+          }
+        },
+        {
+          "label": "small",
+          "baselineFiles": 16,
+          "bytesPerFile": 256,
+          "measuredSequences": 18,
+          "executedSequencesIncludingWarmup": 21,
+          "wallMs": 4692.830457999999,
+          "conditions": {
+            "reset": {
+              "detection": 0,
+              "dispatch": 1,
+              "safeRetention": 0,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 16,
+                "p95": 16,
+                "min": 16,
+                "max": 16
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 16.661167000000205,
+                "p95": 18.369708000000173,
+                "min": 15.41491700000006,
+                "max": 18.369708000000173
+              }
+            },
+            "effect": {
+              "detection": 1,
+              "dispatch": 0,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 0,
+                "p95": 0,
+                "min": 0,
+                "max": 0
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 264.05583299999944,
+                "p95": 284.03362500000003,
+                "min": 256.04975000000013,
+                "max": 284.03362500000003
+              }
+            },
+            "rollback": {
+              "detection": 1,
+              "dispatch": 1,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 1,
+                "p95": 1,
+                "min": 1,
+                "max": 1
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 310.7700420000001,
+                "p95": 328.44295799999963,
+                "min": 303.9922080000015,
+                "max": 328.44295799999963
+              }
+            }
+          },
+          "outcomeGates": {
+            "effect": true,
+            "rollback": true,
+            "defenseInDepth": true
+          }
+        },
+        {
+          "label": "medium",
+          "baselineFiles": 64,
+          "bytesPerFile": 1024,
+          "measuredSequences": 18,
+          "executedSequencesIncludingWarmup": 21,
+          "wallMs": 5373.637083000001,
+          "conditions": {
+            "reset": {
+              "detection": 0,
+              "dispatch": 1,
+              "safeRetention": 0,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 64,
+                "p95": 64,
+                "min": 64,
+                "max": 64
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 33.303916999999274,
+                "p95": 33.64574999999968,
+                "min": 32.335166000000754,
+                "max": 33.64574999999968
+              }
+            },
+            "effect": {
+              "detection": 1,
+              "dispatch": 0,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 0,
+                "p95": 0,
+                "min": 0,
+                "max": 0
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 293.85220899999877,
+                "p95": 297.78979099999924,
+                "min": 291.1807910000007,
+                "max": 297.78979099999924
+              }
+            },
+            "rollback": {
+              "detection": 1,
+              "dispatch": 1,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 1,
+                "p95": 1,
+                "min": 1,
+                "max": 1
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 347.4137499999997,
+                "p95": 357.2464170000003,
+                "min": 345.0139170000002,
+                "max": 357.2464170000003
+              }
+            }
+          },
+          "outcomeGates": {
+            "effect": true,
+            "rollback": true,
+            "defenseInDepth": true
+          }
+        },
+        {
+          "label": "large",
+          "baselineFiles": 128,
+          "bytesPerFile": 4096,
+          "measuredSequences": 18,
+          "executedSequencesIncludingWarmup": 21,
+          "wallMs": 6341.243,
+          "conditions": {
+            "reset": {
+              "detection": 0,
+              "dispatch": 1,
+              "safeRetention": 0,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 128,
+                "p95": 128,
+                "min": 128,
+                "max": 128
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 53.25854199999958,
+                "p95": 57.21891600000163,
+                "min": 52.5480000000025,
+                "max": 57.21891600000163
+              }
+            },
+            "effect": {
+              "detection": 1,
+              "dispatch": 0,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 0,
+                "p95": 0,
+                "min": 0,
+                "max": 0
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 336.03229199999987,
+                "p95": 344.88066699999763,
+                "min": 330.29425000000265,
+                "max": 344.88066699999763
+              }
+            },
+            "rollback": {
+              "detection": 1,
+              "dispatch": 1,
+              "safeRetention": 1,
+              "staleEscapes": 0,
+              "logicalRecoveryTargets": {
+                "count": 6,
+                "p50": 1,
+                "p95": 1,
+                "min": 1,
+                "max": 1
+              },
+              "sequenceWallMs": {
+                "count": 6,
+                "p50": 395.00433300000077,
+                "p95": 409.77200000000084,
+                "min": 388.5142500000002,
+                "max": 409.77200000000084
+              }
+            }
+          },
+          "outcomeGates": {
+            "effect": true,
+            "rollback": true,
+            "defenseInDepth": true
+          }
+        }
+      ]
+    },
+    "pathPlacements": {
+      "placements": 9,
+      "mutationModes": 4,
+      "executedCases": 36,
+      "deniedAndRestored": 36,
+      "receiptPathLeaks": 0,
+      "logicalRecoveryTargets": {
+        "count": 36,
+        "p50": 1,
+        "p95": 1,
+        "min": 1,
+        "max": 1
+      },
+      "wallMs": {
+        "count": 36,
+        "p50": 0.8846670000000074,
+        "p95": 1.4532080000000178,
+        "min": 0.5587500000000034,
+        "max": 1.9891669999999806
+      },
+      "controls": [
+        {
+          "relativePath": "docs/public.txt",
+          "mutation": "modify",
+          "verdict": "retained",
+          "recovery": "not_needed"
+        },
+        {
+          "relativePath": "assets/public.bin",
+          "mutation": "create",
+          "verdict": "retained",
+          "recovery": "not_needed"
+        }
+      ],
+      "results": [
+        {
+          "placementClass": ".env",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.9891669999999806
+        },
+        {
+          "placementClass": ".env",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.093625000000003
+        },
+        {
+          "placementClass": ".env",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.1787080000000003
+        },
+        {
+          "placementClass": ".env",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.5587500000000034
+        },
+        {
+          "placementClass": ".env.production",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.4532080000000178
+        },
+        {
+          "placementClass": ".env.production",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8846670000000074
+        },
+        {
+          "placementClass": ".env.production",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9997500000000059
+        },
+        {
+          "placementClass": ".env.production",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9057500000000118
+        },
+        {
+          "placementClass": "value.bin",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.4413340000000119
+        },
+        {
+          "placementClass": "value.bin",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.15787499999999
+        },
+        {
+          "placementClass": "value.bin",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.2718749999999943
+        },
+        {
+          "placementClass": "value.bin",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.0956660000000227
+        },
+        {
+          "placementClass": "api-credential-cache.json",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.1011250000000246
+        },
+        {
+          "placementClass": "api-credential-cache.json",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8849580000000117
+        },
+        {
+          "placementClass": "api-credential-cache.json",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.0872499999999832
+        },
+        {
+          "placementClass": "api-credential-cache.json",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.7247079999999926
+        },
+        {
+          "placementClass": "id_rsa",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 1.0680419999999913
+        },
+        {
+          "placementClass": "id_rsa",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9607919999999979
+        },
+        {
+          "placementClass": "id_rsa",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8190000000000168
+        },
+        {
+          "placementClass": "id_rsa",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.575082999999978
+        },
+        {
+          "placementClass": "signing.pem",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9048339999999939
+        },
+        {
+          "placementClass": "signing.pem",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.7645420000000058
+        },
+        {
+          "placementClass": "signing.pem",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.742999999999995
+        },
+        {
+          "placementClass": "signing.pem",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.5880000000000223
+        },
+        {
+          "placementClass": "release.key",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.7908749999999998
+        },
+        {
+          "placementClass": "release.key",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.7285829999999862
+        },
+        {
+          "placementClass": "release.key",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.818540999999982
+        },
+        {
+          "placementClass": "release.key",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.5823329999999771
+        },
+        {
+          "placementClass": "value.txt",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9038329999999917
+        },
+        {
+          "placementClass": "value.txt",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8438339999999869
+        },
+        {
+          "placementClass": "value.txt",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.9630829999999833
+        },
+        {
+          "placementClass": "value.txt",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.7280410000000188
+        },
+        {
+          "placementClass": ".ENV.local",
+          "mutation": "modify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8244589999999903
+        },
+        {
+          "placementClass": ".ENV.local",
+          "mutation": "delete",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.6897080000000244
+        },
+        {
+          "placementClass": ".ENV.local",
+          "mutation": "chmod",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.8329999999999984
+        },
+        {
+          "placementClass": ".ENV.local",
+          "mutation": "create",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "redacted": true,
+          "logicalRecoveryTargets": 1,
+          "wallMs": 0.5908330000000035
+        }
+      ]
+    },
+    "policyAdmission": {
+      "policyCells": 20,
+      "allowedCells": 6,
+      "deniedCells": 14,
+      "distinctDeniedActions": 5,
+      "admissionCases": 28,
+      "zeroWorkerDispatchCases": 28,
+      "cleanDenials": {
+        "count": 14,
+        "notNeeded": 14,
+        "wallMs": {
+          "count": 14,
+          "p50": 0.21129200000001447,
+          "p95": 6.1314160000000015,
+          "min": 0.17275000000000773,
+          "max": 6.1314160000000015
+        }
+      },
+      "preAdmissionDrift": {
+        "count": 14,
+        "rolledBack": 14,
+        "wallMs": {
+          "count": 14,
+          "p50": 0.7801670000000058,
+          "p95": 1.2487920000000088,
+          "min": 0.7211250000000007,
+          "max": 1.2487920000000088
+        }
+      },
+      "decisions": [
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "scratch",
+          "verdict": "allowed",
+          "reason": "least_privilege_allow"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "workspace",
+          "verdict": "allowed",
+          "reason": "least_privilege_allow"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "candidate",
+          "verdict": "allowed",
+          "reason": "least_privilege_allow"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "protected",
+          "verdict": "denied",
+          "reason": "protected_target_denied"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "scratch",
+          "verdict": "allowed",
+          "reason": "least_privilege_allow"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "workspace",
+          "verdict": "allowed",
+          "reason": "explicit_workspace_allow"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "candidate",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "protected",
+          "verdict": "denied",
+          "reason": "protected_target_denied"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "scratch",
+          "verdict": "allowed",
+          "reason": "least_privilege_allow"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "workspace",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "candidate",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "protected",
+          "verdict": "denied",
+          "reason": "protected_target_denied"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "scratch",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "workspace",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "candidate",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "protected",
+          "verdict": "denied",
+          "reason": "protected_target_denied"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "scratch",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "workspace",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "candidate",
+          "verdict": "denied",
+          "reason": "effect_not_allowlisted"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "protected",
+          "verdict": "denied",
+          "reason": "protected_target_denied"
+        }
+      ]
+    },
+    "failureTiming": {
+      "executedCases": 6,
+      "rollbackRecovered": 5,
+      "expectedFailClosed": 1,
+      "unexpectedFailures": 0,
+      "wallMs": {
+        "count": 6,
+        "p50": 0.9173749999999927,
+        "p95": 22.290166999999997,
+        "min": 0.10087500000000205,
+        "max": 22.290166999999997
+      },
+      "cases": [
+        {
+          "name": "workspace-root-deleted-before-verify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "recovered": true,
+          "wallMs": 1.6805000000000234
+        },
+        {
+          "name": "workspace-root-replaced-by-symlink",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "recovered": true,
+          "wallMs": 0.9012920000000122
+        },
+        {
+          "name": "final-component-replaced-by-symlink",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "recovered": true,
+          "wallMs": 0.9173749999999927
+        },
+        {
+          "name": "fifo-created-before-verify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "recovered": true,
+          "wallMs": 0.9770419999999831
+        },
+        {
+          "name": "over-budget-tree-created-before-verify",
+          "verdict": "denied",
+          "recovery": "rolled_back",
+          "recovered": true,
+          "wallMs": 22.290166999999997
+        },
+        {
+          "name": "workspace-parent-removed-before-recovery",
+          "verdict": "denied",
+          "recovery": "failed",
+          "recovered": false,
+          "wallMs": 0.10087500000000205
+        }
+      ]
+    },
+    "totalExecutedCasesOrSequences": 156,
+    "assertionFailures": 0,
+    "totalWallMs": 21153.16625
+  },
+  "proofBoundary": {
+    "classification": "disposable deterministic local no-model stress matrix",
+    "providerCalls": 0,
+    "externalCalls": 0,
+    "credentialsRead": false,
+    "authoritativeCheckoutModified": false,
+    "releasePacketModified": false,
+    "supported": [
+      "fixed synthetic repository-size sensitivity across reset-all, Effect Firewall, and RunGuard conditions",
+      "typed policy decisions over all 20 declared action-target cells",
+      "zero-worker pre-dispatch denial over every denied policy cell",
+      "synthetic protected-path recognition, redaction, and bounded restoration for the enumerated mutations",
+      "declared deterministic post-checkpoint failure timings and fail-closed receipt outcomes"
+    ],
+    "notSupported": [
+      "production security, hostile-kernel isolation, or complete filesystem mediation",
+      "model-backed behavior, provider behavior, TikTok access, deployment, or judge acceptance",
+      "controlled performance comparison, CPU, memory, energy, monetary, syscall, or byte-I/O savings",
+      "coverage of paths, actions, races, or failure schedules outside this enumerated synthetic matrix"
+    ]
+  }
+}

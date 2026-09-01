@@ -4,30 +4,52 @@
 
 Remove the unsafe effect, not the useful agent.
 
-## Paste-Ready Short Description
+## Paste-Ready Human Story
 
-An autonomous coding agent can understand a repository for an hour and still
-make one dangerous next move. At this typed middleware seam, NerveLoop gives
-the host, rather than the model, the final say over whether that action may run.
-It blocks a known forbidden effect before a worker starts, restores bounded
-workspace drift when admitted work goes wrong, and lets the same Agent keep its
-record and retained workspace. In six local rounds, the median recovery surface was **32 / 0 /
-1 logical targets** for reset-all, Effect Firewall, and RunGuard.
+We began with a mistake. Our prototype let a dangerous action run, rolled back
+the damage, and called that prevention. It was not. A clean workspace cannot
+tell a judge whether an effect never happened or was repaired later.
+
+NerveLoop grew from that distinction. It is Track C middleware between agent
+intent and a repository worker. For the staged protected delete, host policy
+refuses authority before dispatch: no worker, no capability, no changed files,
+and matching manifests. If admitted work bypasses the cooperative sink,
+RunGuard withholds its output and restores the checkpoint. The same local Agent
+record can run safely again.
+
+From a clean clone of the exact final bundle, we created an Agent in the Web
+UI, retained normal work, triggered the protected denial, showed a separate
+rollback, and retained a later safe Run. The 156-second review candidate adds a
+17.1-second continuous Chrome compositor capture of that functional
+browser-to-API-to-AgentService-to-FixtureRunner path.
+
+The design combines a monotone action-target policy with an opaque, one-use
+grant bound to one Run, Agent, file, and payload. Across 156 cases and
+sequences, all 28 denied admission cases had zero worker dispatch, while 36/36
+protected-path mutations were detected and restored. Five of six
+recovery-timing faults restored; removing the workspace parent produced the
+expected recovery-failed receipt.
+
+The flagship uses `DEMO_RUNNER=1` and makes zero provider calls; it does not yet
+prove the required Ark/model-backed local Runtime Agent run. These are
+synthetic local outcomes, not performance or production-security claims. Our
+contribution is making prevention, recovery, and safe continuation three
+separate, inspectable facts.
 
 ## Official Track
 
-**Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware**
-
-“The Kill Switch” is our demonstration scenario, not the official track name.
+**Problem Statement #1: Agent Launchpad. Selected middleware track: Track C —
+The Kill Switch (Safety and Sandboxing).**
 
 ## The Result in 30 Seconds
 
 NerveLoop sits between an agent's proposal and the worker that can change a
-repository. In the demo, the Agent proposes `delete_mock_asset` against a
-`protected` target. The Effect Firewall denies it before dispatch, so the
-worker never starts. A separate admitted raw write then shows the second line:
-RunGuard catches the post-run drift and restores the bounded checkpoint. The
-same Agent finishes a later safe Run instead of losing its whole session.
+repository. In the reproducible judge path, a deterministic `FixtureRunner`
+produces `delete_mock_asset` against a `protected` target. The Effect Firewall
+denies it before dispatch, so the worker never starts. A separate admitted raw
+write then shows the second line: RunGuard catches the post-run drift and
+restores the bounded checkpoint. The same Agent finishes a later safe Run
+instead of losing its whole session.
 
 Across six deterministic local rounds:
 
@@ -67,8 +89,9 @@ Our deterministic `DEMO_RUNNER=1` flow tells one end-to-end story on the same
 Agent:
 
 1. A normal safe Run is admitted and retained.
-2. The Agent proposes `delete_mock_asset` against a `protected` target. The
-   **Effect Firewall** denies it before worker dispatch. The receipt records
+2. The deterministic FixtureRunner produces `delete_mock_asset` against a
+   `protected` target. The **Effect Firewall** denies it before worker dispatch.
+   The receipt records
    `workerSpawned:false`, worker dispatch `0`, `changedFiles: []`, an unchanged
    before manifest equal to the after manifest, and `recovery:not_needed`.
 3. A separate admitted fault deliberately bypasses the cooperative write sink
@@ -144,10 +167,11 @@ difference between prevention and recovery observable.
 
 ## Architecture
 
-The one-page judge version is in
+The clearest one-page judge version is the dual-lane runtime truth map in
+[`research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.png`](research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.png).
+It keeps the verified fixture path visibly separate from the wired-but-unproven
+Ark/Codex path. The longer technical note remains in
 [`docs/judge/NERVELOOP-REFLEX-ARCHITECTURE.md`](docs/judge/NERVELOOP-REFLEX-ARCHITECTURE.md).
-It shows the preventative path and the recovery path separately; Scene 08 of
-the demo video animates the same topology.
 
 ```text
 Agent -> typed effect -> host-owned Effect Firewall
@@ -221,6 +245,15 @@ before settling or finish a redemption already awaiting I/O. The Run remains
 cancelled and its output is withheld, but that exact policy-authorized write
 may commit.
 
+A separate exact-commit stress matrix exercised 156 enumerated local cases and
+sequences with zero unexpected assertion failures. All 36 post-run
+protected-path mutations were denied and restored; all 28 denied admission
+cases had zero worker dispatch; and five of six recovery-timing faults restored
+successfully. Removing the workspace parent produced the expected fail-closed
+`recovery:failed` outcome. These are synthetic no-model cases, not 156 official
+tests, and the post-run mutations prove detection and recovery rather than
+pre-dispatch prevention.
+
 These are finite deterministic local fixtures. They are not a provider-model or
 model-quality test. They are not proof of OS confinement, ambient-filesystem
 removal, a hardened sandbox, kernel isolation, or production security. They do
@@ -236,21 +269,25 @@ credential-free and makes no paid model call.
 
 ## Judging Criteria Alignment
 
-- **Technical Execution:** the policy, one-use authority, Effect Sink, and
-  RunGuard are integrated into the AgentService lifecycle and exercised by a
-  deterministic end-to-end flow, not shown as disconnected mockups.
-- **Innovation and Problem Insight:** NerveLoop treats prevention, recovery, and
-  safe continuation as three different facts. It does not claim that a rollback
-  retroactively prevented an effect.
-- **Impact and Relevance:** it gives teams running long-horizon agents a smaller
-  choice than “trust everything” or “kill the session.” Useful context can
-  survive one forbidden proposal.
-- **Feasibility and Practicality:** the judge path is local, credential-free,
-  and built with ordinary TypeScript and Node.js components. Its process-local
-  and cooperative limits are stated plainly.
-- **Presentation and Communication:** the UI, receipts, benchmark, and video
-  tell the same causal facts: normal work, pre-dispatch denial, later safe work
-  on the same Agent, and a separate RunGuard rollback.
+- **Middleware Works End to End — 40%:** the exact-bundle browser path reaches
+  the API, AgentService, and deterministic FixtureRunner. It shows a normal
+  retained Run, zero-worker denial, a separate detected-and-restored fault, and
+  later safe work on the same Agent. The official real Runtime/Ark Agent Run is
+  still an open gate: the typed pre-dispatch proposal branch currently runs
+  only with `DEMO_RUNNER=1`, and an explicit separate `terminated` UI state has
+  not been demonstrated.
+- **Technical Design and Integration — 25%:** the two bounded controls are a
+  host-owned action-target admission policy and a run/file/payload-bound,
+  one-use sink grant. RunGuard independently checkpoints, verifies, withholds,
+  and restores around both fixture and non-demo runner dispatch.
+- **Verification and Robustness — 20%:** positive and negative receipts
+  distinguish prevention from recovery. The 156-case matrix covers policy
+  denial, protected-path drift, recovery faults, zero-worker dispatch, cleanup,
+  and later-safe continuation, with local and synthetic limits stated.
+- **Demo and Reproducibility — 15%:** the Web UI, receipts, one-page
+  architecture, setup instructions, and sub-three-minute candidates tell the
+  same causal story. Public playback, rights review, and an official judge run
+  remain external gates.
 
 ## Testing Instructions
 
@@ -291,8 +328,8 @@ starter's `AgentService` and Run lifecycle as the integration seam, then adds
 typed effect admission, one-use authority, an exact cooperative sink, causal
 receipts, and bounded recovery around that flow.
 
-The `track-c` text in a few filenames is a legacy identifier. Human-facing
-labels and current receipts use the official Track #1 wording.
+The `track-c` text in filenames refers to the selected official middleware
+track, Track C — The Kill Switch.
 
 ## Public Demo Link
 
@@ -302,16 +339,14 @@ labels and current receipts use the official Track #1 wording.
 
 **Target repository:** <https://github.com/RrankPyramid/CodeJam>
 
-At the 1 September local release capture, that repository's default branch was
-still the July initial commit. Use the exact signed-out-verified submission
-branch URL here only after the reviewed source has been pushed; until then this
-field remains pending.
+Use the exact signed-out-verified submission branch URL here only after the
+reviewed source has been pushed; until then this field remains pending.
 
 ## Demo Video
 
 **Public YouTube URL:** Pending.
 
-The 2:19 local candidate follows one story:
+The selected 139.875-second procedural candidate follows one story:
 
 1. an agent with useful repository context proposes a dangerous next move;
 2. the proposal becomes `delete_mock_asset / protected`;
@@ -320,15 +355,29 @@ The 2:19 local candidate follows one story:
 5. a separate admitted raw write demonstrates RunGuard's rollback backstop; and
 6. the closing comparison shows **32 / 0 / 1** and the honest local-only limits.
 
-The current local candidate is 139.875 seconds at 1920x1080, with H.264 video
-and stereo AAC audio. Its verifier binds the declared current source set,
-including the Effect Sink, plus seven decoded sample frames. The video has no
-voice or narration and still needs a continuous human playback review before
-upload. Machine decode, sample frames, and a contact sheet do not replace
-watching it.
+It is 1920x1080 H.264 with stereo AAC audio. Its verifier binds the declared
+source set, including the Effect Sink, plus seven decoded sample frames.
 
-The stable 159-second MP4 is an older fallback. It does not reflect the final
-Effect Firewall-first narrative. Neither local file proves a public upload.
+The strongest unpromoted technical review candidate is now 156.000 seconds. It
+adds a 17.116667-second browser-only Chrome DevTools Protocol screencast from an
+exact clean bundle. The capture records 489 real compositor frames, averages
+28.576 observed frames per second, and transparently holds the latest observed
+frame on a 60 fps output grid. The combined film is encoded at 24 fps with the
+existing audio bed. A duplicated excerpt from that bed removes the first
+continuous experiment's 16.141-second silent gap; automated checks found no
+clipping, audio-timestamp discontinuity, or silence of at least 0.25 seconds.
+It passed full audio/video machine decode and still needs continuous human
+playback, rights review, and an explicit promotion decision.
+Its exact human voiceover map is in
+[`research/2026-09-01-continuous-candidate-voiceover.md`](research/2026-09-01-continuous-candidate-voiceover.md);
+no voice was generated or recorded in this pass.
+
+The earlier 173.875-second four-frames-per-second companion remains preserved
+as a superseded experiment; it is not the preferred review candidate.
+
+The untouched stable 159-second MP4 remains the older private fallback. None of
+these local candidates proves Ark/model execution, TikTok access, a public
+upload, or submission.
 
 ## Screenshot Shot List
 
@@ -342,10 +391,10 @@ Effect Firewall-first narrative. Neither local file proves a public upload.
 
 ## Submission Readiness Notes
 
-The local product, evidence, and browser story are prepared. The remaining
-external gates are a reviewed source push, continuous human playback of the
-current video, a public YouTube upload, entrant and team details, and the final
-Devpost action. None of those gates is claimed complete here.
+The deterministic local fixture and evidence are prepared. The official
+Runtime/Ark real-Agent gate, explicit termination-state proof, candidate
+playback/rights/promotion, reviewed source push, public video URL, entrant
+details, and final Devpost action remain open.
 
 ## Known Limitations
 
@@ -372,7 +421,7 @@ Devpost action. None of those gates is claimed complete here.
 
 - Team name and team-leader email: entrant-provided
 - Registration confirmation: entrant-confirmed
-- Problem statement: Track #1
+- Problem statement: #1 Agent Launchpad, Track C — The Kill Switch
 - Public repository: current source push pending
 - Public YouTube URL: pending
 - Public demo URL: pending

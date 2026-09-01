@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "artifact": "nerveloop-runtime-boundary",
+  "createdAt": "2026-09-01T03:03:23Z",
+  "role": "standalone-unpromoted-judge-architecture-candidate",
+  "sourceCommit": "16f04073bd46e42b3b0284120da14230d82af8c7",
+  "files": {
+    "svg": {
+      "path": "research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.svg",
+      "sha256": "555f9ef3a9f3cdccf136278655375aca8be24d9354a6d9157da339b8d83c6382",
+      "width": 1920,
+      "height": 1080,
+      "xmlParsed": true
+    },
+    "png": {
+      "path": "research/evidence/2026-09-01-runtime-boundary-diagram/nerveloop-runtime-boundary.png",
+      "sha256": "f1c43c6537945e561894ea832bb2f6b96d4761689ffeeb63b2cb9b019b1b7c37",
+      "width": 1920,
+      "height": 1080,
+      "format": "png",
+      "visualInspection": "original-resolution; two lanes, threat asset, terminal states, legend and open gate legible; no observed clipping"
+    }
+  },
+  "sourceBindings": {
+    "apps/server/src/agent-service.ts": "39276855c84da2a961d799230b61edaee9726ff4d7112d273bb6c2262f08de32",
+    "apps/server/src/codex-runner.ts": "2028bb002580bf70ae466c9b1d281021988813a057013a8c6b7fe28b47ecadad",
+    "apps/server/src/runner-factory.ts": "e32e76c567041a09aa773c3c876de8cde2804ba75a325c818a91c054bc9b2861",
+    "apps/server/src/run-guard.ts": "2f7df4f07cb7b1cabe050941c8bed9934ee8d3c7c44a6f1c9d781632658d27c7"
+  },
+  "claims": {
+    "fixtureLaneVerifiedLocally": true,
+    "nonDemoRuntimePathImplemented": true,
+    "arkModelBackedFlagshipRunExecuted": false,
+    "workerTerminationDemonstrated": false,
+    "promotedToReleasePacket": false,
+    "existingDiagramChanged": false,
+    "videoChanged": false,
+    "sealedBundleChanged": false,
+    "externalCalls": 0
+  },
+  "boundary": "Diagrammatic source-to-control mapping only; it does not upgrade implementation into live-provider evidence or prove hostile-process isolation, production security, TikTok access, deployment, submission, or judge acceptance."
+}

@@ -17,7 +17,7 @@ Most agent safety demos end with a clean folder. That leaves an important questi
 
 ## The three-minute story
 
-“The Kill Switch” is our demonstration scenario, not the official track name.
+Official scope: **Problem Statement #1: Agent Launchpad; selected middleware Track C — The Kill Switch (Safety and Sandboxing).**
 
 1. A normal Run completes, its exact cooperative write commits through the Effect Sink, and its work is retained.
 2. On the same Agent, the fixed local fixture proposes `delete_mock_asset` against a `protected` target.
