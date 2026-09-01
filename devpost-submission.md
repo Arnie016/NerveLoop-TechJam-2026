@@ -356,14 +356,14 @@ Kill Switch, within official Problem Statement #1: Agent Launchpad.
 
 ## Public Repository Link
 
-**Target repository:** <https://github.com/RrankPyramid/CodeJam>
+**Public repository:** <https://github.com/Arnie016/NerveLoop-TechJam-2026>
 
-Use the exact signed-out-verified submission branch URL here only after the
-reviewed source has been pushed; until then this field remains pending.
+The public `main` branch was verified from an unauthenticated surface after the
+reviewed no-video source was pushed.
 
 ## Demo Video
 
-**Public YouTube URL:** Pending.
+**Public YouTube URL:** <https://youtu.be/5kj5CO14tBU>
 
 The recommended upload candidate is a 156.000-second technical cut that follows
 one story:
@@ -383,15 +383,17 @@ records -22.6 LUFS integrated loudness, -9.2 dBTP true peak, no silence of at
 least 0.25 seconds, and a successful full audio/video decode. The rollback is
 preserved in a dedicated frame and receipt; because the manifest's final DOM
 query occurs after the later-safe view, its `rollbackObserved` field is false.
-The cut still needs continuous human playback, rights review, and an explicit
-promotion decision before upload.
+The captioned package passed full local audio/video decode. YouTube completed
+its upload check with no copyright issues found, and the video was published as
+Unlisted with a custom thumbnail and explicit local-fixture proof boundary.
 Its exact human voiceover map is in
 [`research/2026-09-01-continuous-candidate-voiceover.md`](research/2026-09-01-continuous-candidate-voiceover.md);
 no voice was generated or recorded in this pass.
 
-This local candidate does not prove Ark/model execution, TikTok access, a
-public upload, or submission. Earlier experiments and the stable fallback stay
-in the private evidence archive rather than this public-facing story.
+The public upload does not prove Ark/model execution, TikTok access, official
+late attachment to the frozen hackathon submission, or judge acceptance.
+Earlier experiments and the stable fallback stay in the private evidence
+archive rather than this public-facing story.
 
 ## Screenshot Shot List
 
@@ -405,10 +407,12 @@ in the private evidence archive rather than this public-facing story.
 
 ## Submission Readiness Notes
 
-The deterministic local fixture and evidence are prepared. The official
-Runtime/Ark real-Agent gate, explicit termination-state proof, candidate
-playback/rights/promotion, reviewed source push, public video URL, entrant
-details, and final Devpost action remain open.
+The deterministic local fixture and evidence are prepared. The reviewed source
+is public, the Unlisted video is public by link, and the editable Devpost
+portfolio project page contains the repository, video, rewritten story and four
+gallery cards. The official Runtime/Ark real-Agent gate, hostile-process
+isolation, entrant details, and organizer confirmation that post-deadline edits
+are attached to the frozen hackathon submission remain open.
 
 ## Known Limitations
 
@@ -436,7 +440,7 @@ details, and final Devpost action remain open.
 - Team name and team-leader email: entrant-provided
 - Registration confirmation: entrant-confirmed
 - Problem statement: #1 Agent Launchpad; selected subtrack Track C — The Kill Switch
-- Public repository: current source push pending
-- Public YouTube URL: pending
-- Public demo URL: pending
-- Final Devpost submission confirmation: pending
+- Public repository: https://github.com/Arnie016/NerveLoop-TechJam-2026
+- Public YouTube URL: https://youtu.be/5kj5CO14tBU
+- Public project page: https://devpost.com/software/nerveloop-the-effect-firewall-for-ai-agents
+- Pre-deadline Devpost submission: verified; post-deadline portfolio edits are not claimed as a frozen-submission update

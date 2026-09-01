@@ -15,12 +15,17 @@ test('manifest parser rejects duplicates, traversal, and unstable ordering', () 
   assert.throws(() => parseManifestText('../escape\n'), /escapes root/u);
 });
 
-test('submission packet joins a wrapped tagline and preserves entrant gates', () => {
-  const packet = extractSubmissionPacket(`# NerveLoop\n\n## One-line Summary\n\nHost-owned middleware\nthat blocks effects.\n\n## Official Track\n\n**Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware**\n\nTeam name and team-leader email: entrant-provided\nRegistration confirmation: entrant-confirmed\nPublic repository: current source push pending\nPublic YouTube URL: pending\nFinal Devpost submission confirmation: pending\n`);
+test('submission packet joins a wrapped tagline and separates entrant gates from publication links', () => {
+  const packet = extractSubmissionPacket(`# NerveLoop\n\n## One-line Summary\n\nHost-owned middleware\nthat blocks effects.\n\n## Official Track\n\n**Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware**\n\nTeam name and team-leader email: entrant-provided\nRegistration confirmation: entrant-confirmed\nPublic repository: https://github.com/example/nerveloop\nPublic YouTube URL: https://youtu.be/example\nPublic project page: https://devpost.com/software/example\n`);
   assert.equal(packet.title, 'NerveLoop');
   assert.equal(packet.tagline, 'Host-owned middleware that blocks effects.');
   assert.equal(packet.officialTrackPresent, true);
-  assert.equal(packet.pendingEntrantFields.length, 5);
+  assert.equal(packet.pendingEntrantFields.length, 2);
+  assert.deepEqual(packet.publicationLinks, {
+    repository: 'https://github.com/example/nerveloop',
+    youtube: 'https://youtu.be/example',
+    projectPage: 'https://devpost.com/software/example',
+  });
 });
 
 test('external gates remain open even when local artifact checks pass', () => {
@@ -31,7 +36,7 @@ test('external gates remain open even when local artifact checks pass', () => {
       titleCharacters: 9,
       taglineCharacters: 42,
       officialTrackPresent: true,
-      pendingEntrantFields: Array(5).fill('pending'),
+      pendingEntrantFields: Array(2).fill('pending'),
     },
     candidate: {passed: true},
     story: {localCandidateReady: true},

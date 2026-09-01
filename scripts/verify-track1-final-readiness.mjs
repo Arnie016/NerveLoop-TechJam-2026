@@ -92,10 +92,12 @@ export function extractSubmissionPacket(text) {
     pendingEntrantFields: [
       'Team name and team-leader email: entrant-provided',
       'Registration confirmation: entrant-confirmed',
-      'Public repository: current source push pending',
-      'Public YouTube URL: pending',
-      'Final Devpost submission confirmation: pending',
     ].filter(value => text.includes(value)),
+    publicationLinks: {
+      repository: text.match(/Public repository:\s*(https:\/\/\S+)/u)?.[1] ?? null,
+      youtube: text.match(/Public YouTube URL:\s*(https:\/\/\S+)/u)?.[1] ?? null,
+      projectPage: text.match(/Public project page:\s*(https:\/\/\S+)/u)?.[1] ?? null,
+    },
   };
 }
 
@@ -103,7 +105,7 @@ export function classifyFinalReadiness({mode, closure, packet, candidate = null,
   const packetAligned =
     packet.titleCharacters > 0 && packet.titleCharacters <= 60 &&
     packet.taglineCharacters > 0 && packet.taglineCharacters <= 200 &&
-    packet.officialTrackPresent && packet.pendingEntrantFields.length === 5;
+    packet.officialTrackPresent && packet.pendingEntrantFields.length === 2;
   const sourceReady = closure.exact && packetAligned;
   const localCandidateReady = mode === 'source-only'
     ? null

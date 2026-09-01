@@ -92,7 +92,7 @@ The runner never receives the parent or any mint/inspect API. It receives an opa
 
 This is process-local mediation for one exact cooperative fixture effect. It is not authentication, durable authority, provider-wide interception, ambient-filesystem removal, or OS/kernel isolation. Other writes in the same process can still bypass the sink; the deliberate raw `.env` fault exists to prove RunGuard catches and restores that second-line case.
 
-[Architecture note](docs/judge/NERVELOOP-REFLEX-ARCHITECTURE.md) · [Judge playbook](docs/judge/VERA-JUDGE-PLAYBOOK.md)
+[Architecture note](docs/judge/NERVELOOP-REFLEX-ARCHITECTURE.md) · [Judge playbook](docs/judge/VERA-JUDGE-PLAYBOOK.md) · [Public verification map](docs/PUBLIC_VERIFICATION.md)
 
 ## What improved
 
@@ -188,14 +188,15 @@ This repository proves a deterministic local middleware fixture. It mediates one
 
 Both process-local authority registries are capped at 1,024 entries and do not yet reclaim terminal entries. Issuance fails closed at that ceiling, which makes this a demo availability limit rather than a production lifecycle design.
 
-The current upload package uses a 156.000-second H.264/AAC cut with sixteen
-burned-in captions. Its full audio/video decode passed, and its audio stream is
-byte-identical to the locally synthesized source bed. Continuous human playback
-and public YouTube upload remain separate gates. The TikTok TechJam project was
-submitted to Devpost before the deadline; this repository does not claim that a
-later portfolio-page edit changes the frozen hackathon submission. The stable
-159-second video remains an older fallback that predates and does not reflect
-the final Effect Firewall-first story.
+The published [156-second H.264/AAC demo](https://youtu.be/5kj5CO14tBU) uses
+sixteen burned-in captions. Its full audio/video decode passed, its audio stream
+is byte-identical to the locally synthesized source bed, and YouTube reported no
+copyright issues during upload. It is Unlisted and embedded in the public
+[Devpost project page](https://devpost.com/software/nerveloop-the-effect-firewall-for-ai-agents).
+The TikTok TechJam project was submitted to Devpost before the deadline; this
+repository does not claim that the later portfolio-page edit changed the frozen
+hackathon submission. The stable 159-second video remains an older fallback and
+was preserved byte-for-byte.
 
 NerveLoop does not claim to invent reference monitors, capabilities or transaction recovery. Its contribution is their small, observable composition for long-horizon agents: deny a typed unsafe effect before dispatch, recover admitted drift after execution, and preserve the same Agent when later work is safe.
 
