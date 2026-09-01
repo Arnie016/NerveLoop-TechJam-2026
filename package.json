@@ -1,0 +1,29 @@
+{
+  "name": "nerveloop-agent-middleware",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Host-owned middleware that separates agent proposals from effect authority, recovery, and safe continuation.",
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm run dev -w @launchpad/server\" \"npm run dev -w @launchpad/web\"",
+    "build": "npm run build -w @launchpad/web && npm run build -w @launchpad/server",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w @launchpad/server",
+    "check": "npm run typecheck && npm run test && npm run build",
+    "submission:story-check": "node scripts/verify-judge-story-contract.mjs",
+    "submission:source-check": "node scripts/verify-track1-final-readiness.mjs --source-only",
+    "submission:final-check": "node scripts/verify-track1-final-readiness.mjs",
+    "start": "npm run start -w @launchpad/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
+  }
+}

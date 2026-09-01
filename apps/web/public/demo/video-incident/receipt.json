@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "fixture": "real-mp4-cut-boundary-regression",
+  "contract": {
+    "startMs": 2000,
+    "endMs": 4000,
+    "expectedFrames": 60
+  },
+  "planner": {
+    "beforeSha256": "847838fb1f16139815268d48a9396b9e1b9236e0de9d65393baec19eb3ae64fd",
+    "afterSha256": "b22859a47f60a36c75e689e81831097fcf552f043f1cfb0f7bcdd669016c5bd4",
+    "brokenPlan": {
+      "startMs": 0,
+      "endMs": 6000,
+      "segmentIds": [
+        "red-440hz",
+        "green-880hz",
+        "blue-1320hz"
+      ],
+      "sourceSha256": "847838fb1f16139815268d48a9396b9e1b9236e0de9d65393baec19eb3ae64fd",
+      "variant": "baseline"
+    },
+    "repairedPlan": {
+      "startMs": 2000,
+      "endMs": 4000,
+      "segmentIds": [
+        "green-880hz"
+      ],
+      "sourceSha256": "b22859a47f60a36c75e689e81831097fcf552f043f1cfb0f7bcdd669016c5bd4",
+      "variant": "fixed"
+    }
+  },
+  "rejected": {
+    "verdict": "REJECTED",
+    "checks": {
+      "streams": true,
+      "duration": false,
+      "frameCount": false,
+      "decodedFrames": false,
+      "audioSamples": false,
+      "decodedAudio": false
+    },
+    "candidate": {
+      "probe": {
+        "durationSeconds": 6,
+        "video": {
+          "index": 0,
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "duration": "6.000000",
+          "nb_read_frames": "180"
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "duration": "6.000000",
+          "nb_read_frames": "282"
+        }
+      },
+      "frames": {
+        "frames": 180,
+        "sha256": "ad7c4af03df4b46168f248596e514f6a42c6f9ab63b4800a5f28e3189945e793"
+      },
+      "audio": {
+        "sampleFrames": 288768,
+        "sha256": "64af809572d1e0028b74370e8eb1df3f122c583c541c79c6a6a23325202f4289"
+      }
+    },
+    "reference": {
+      "probe": {
+        "durationSeconds": 2,
+        "video": {
+          "index": 0,
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "duration": "2.000000",
+          "nb_read_frames": "60"
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "duration": "2.000000",
+          "nb_read_frames": "94"
+        }
+      },
+      "frames": {
+        "frames": 60,
+        "sha256": "b55c7c7a9703507da14adfc3957f6f0224a3006554db81344c54a9dc36e2216c"
+      },
+      "audio": {
+        "sampleFrames": 96256,
+        "sha256": "cff0675a5bc45d246f5f2b53c334294d03948b02eeefb692a171e49b30146c0f"
+      }
+    }
+  },
+  "accepted": {
+    "verdict": "MEDIA_REPAIR_ACCEPTED",
+    "checks": {
+      "streams": true,
+      "duration": true,
+      "frameCount": true,
+      "decodedFrames": true,
+      "audioSamples": true,
+      "decodedAudio": true
+    },
+    "candidate": {
+      "probe": {
+        "durationSeconds": 2,
+        "video": {
+          "index": 0,
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "duration": "2.000000",
+          "nb_read_frames": "60"
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "duration": "2.000000",
+          "nb_read_frames": "94"
+        }
+      },
+      "frames": {
+        "frames": 60,
+        "sha256": "b55c7c7a9703507da14adfc3957f6f0224a3006554db81344c54a9dc36e2216c"
+      },
+      "audio": {
+        "sampleFrames": 96256,
+        "sha256": "cff0675a5bc45d246f5f2b53c334294d03948b02eeefb692a171e49b30146c0f"
+      }
+    },
+    "reference": {
+      "probe": {
+        "durationSeconds": 2,
+        "video": {
+          "index": 0,
+          "codec_name": "mpeg4",
+          "codec_type": "video",
+          "duration": "2.000000",
+          "nb_read_frames": "60"
+        },
+        "audio": {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "48000",
+          "channels": 1,
+          "duration": "2.000000",
+          "nb_read_frames": "94"
+        }
+      },
+      "frames": {
+        "frames": 60,
+        "sha256": "b55c7c7a9703507da14adfc3957f6f0224a3006554db81344c54a9dc36e2216c"
+      },
+      "audio": {
+        "sampleFrames": 96256,
+        "sha256": "cff0675a5bc45d246f5f2b53c334294d03948b02eeefb692a171e49b30146c0f"
+      }
+    }
+  },
+  "assets": {
+    "input": {
+      "path": "input.mp4",
+      "sha256": "89302ed48960814cb0957697626de7e19f0e360089b31f22cc12fb855422d98d"
+    },
+    "broken": {
+      "path": "broken.mp4",
+      "sha256": "9de66a3c0044f763eff53624ee28d5cb3f3de35442c5ab636437266efc67971c"
+    },
+    "repaired": {
+      "path": "repaired.mp4",
+      "sha256": "0b4810091405256c349a7fa7bd9f2a74db2fc55e9289c4ee9deff295c42485b2"
+    },
+    "brokenPoster": {
+      "path": "broken-poster.jpg",
+      "sha256": "0a7de501952678b161b04c2e897493e1a59483f92cac705ba249497231fead9e"
+    },
+    "repairedPoster": {
+      "path": "repaired-poster.jpg",
+      "sha256": "1f34190b50334299426ff466543318f603266f893a54ce5e9dfbffdd6d7b4aa8"
+    }
+  },
+  "proofBoundary": [
+    "Deterministic synthetic media generated locally with FFmpeg.",
+    "Decoded-frame and decoded-audio equality are verified against an independent reference.",
+    "This is not semantic vision, model-discovered repair, compression optimization, TikTok data, or production-scale evidence."
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "nerveloop.effect-firewall-provenance-cleared-candidate.v1",
+  "kind": "local-source-bound-procedural-effect-firewall-candidate",
+  "officialTrack": "Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware",
+  "video": {
+    "path": "docs/demo/nerveloop-effect-firewall-candidate.mp4",
+    "sha256": "1884b05ad3e8350c8e4b0aa8322d1b47388f1ff9392f7be985cc73467b8df36e",
+    "sizeBytes": 18418995
+  },
+  "media": {
+    "durationSeconds": 139.875,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "pixelFormat": "yuv420p",
+      "frameRate": "24/1"
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": 48000,
+      "channels": 2
+    }
+  },
+  "rendering": {
+    "backend": "procedural Node PNG plates, parsed font8x8 bitmap glyphs, cyclic masthead neural rail, deterministic PCM sound bed, and local ffmpeg",
+    "motionDesign": "directional zoom/pan, repeating counterflow nodes constrained to the masthead divider, and cross-scene fades",
+    "frameRate": 24,
+    "transitionSeconds": 0.65,
+    "importedScreenshots": 0,
+    "importedImages": 0,
+    "systemFontResolution": false,
+    "bitmapFont": {
+      "path": "research/evidence/2026-09-01-provenance-cleared-media-experiment/font8x8_basic.h",
+      "sha256": "49d8df366296b203ca3211bc0672cf2a762135bf12710735b6292756b19dffd5",
+      "upstreamCommit": "8e279d2d864e79128e96188a6b9526cfa3fbfef9",
+      "upstreamDeclaration": "Public Domain",
+      "declarationIndependentlyAdjudicated": false
+    },
+    "voice": "none",
+    "realPersonVoice": false,
+    "externalCalls": 0,
+    "paidServices": 0
+  },
+  "storyContractSha256": "3e1ba0ee2b921e96236135c01ae61904bab52581e49716a6dd09b05e4dc0bcf8",
+  "scenes": [
+    {
+      "id": "01-incident",
+      "startsAtSeconds": 0,
+      "durationSeconds": 10
+    },
+    {
+      "id": "02-principle",
+      "startsAtSeconds": 9.35,
+      "durationSeconds": 11
+    },
+    {
+      "id": "03-typed-proposal",
+      "startsAtSeconds": 19.7,
+      "durationSeconds": 12
+    },
+    {
+      "id": "04-monotone-gate",
+      "startsAtSeconds": 31.05,
+      "durationSeconds": 14
+    },
+    {
+      "id": "05-proof-surface",
+      "startsAtSeconds": 44.4,
+      "durationSeconds": 12
+    },
+    {
+      "id": "06-later-safe",
+      "startsAtSeconds": 55.75,
+      "durationSeconds": 11
+    },
+    {
+      "id": "07-runguard",
+      "startsAtSeconds": 66.1,
+      "durationSeconds": 13
+    },
+    {
+      "id": "08-architecture",
+      "startsAtSeconds": 78.45,
+      "durationSeconds": 14
+    },
+    {
+      "id": "09-six-round-kpi",
+      "startsAtSeconds": 91.8,
+      "durationSeconds": 15
+    },
+    {
+      "id": "10-adversarial",
+      "startsAtSeconds": 106.15,
+      "durationSeconds": 13
+    },
+    {
+      "id": "11-boundary",
+      "startsAtSeconds": 118.5,
+      "durationSeconds": 11
+    },
+    {
+      "id": "12-close",
+      "startsAtSeconds": 128.85,
+      "durationSeconds": 11
+    }
+  ],
+  "sampleFrames": [
+    {
+      "timeSeconds": 3,
+      "sha256": "579850d86282c01fe758bf7080f207df40b14d5f407ad09e507a70e4e9a7b29b"
+    },
+    {
+      "timeSeconds": 24,
+      "sha256": "c986fe45d680ca88c1a94196289d4d71f9cd4271fb9d35f484580c9065110167"
+    },
+    {
+      "timeSeconds": 48,
+      "sha256": "aadb95beb23601c9d601cf9ba29743e988f44d8655c6f7f00a96a41fd01348a8"
+    },
+    {
+      "timeSeconds": 70,
+      "sha256": "0afcbcb4fcd3b64a899733ddfa378040aba0b37313e5fba84e986f6a762c24ce"
+    },
+    {
+      "timeSeconds": 96,
+      "sha256": "8538f115d06266390390dc279354204b1acb957d5000e17f3feabf746dfb3c0f"
+    },
+    {
+      "timeSeconds": 119,
+      "sha256": "6edbec7b905ba9b410b048d00c8d81bef5f3a8f9a4ab537dafc333f2582aeaa5"
+    },
+    {
+      "timeSeconds": 136.875,
+      "sha256": "29540b0e8167b0f36780519ab230b661038ecce556344c42edd4aa2ae4fb74db"
+    }
+  ],
+  "sourceBindings": [
+    {
+      "path": "research/evidence/2026-09-01-track-c-functional-flow/current.json",
+      "role": "same-Agent pre-dispatch denial, post-run rollback, and later-safe receipt",
+      "sha256": "b0f6f2a84a02210ca26f85afc6c8c6e67d03a5fc5afd6dd4fba4183b4573bfc5"
+    },
+    {
+      "path": "research/evidence/2026-09-01-track-c-condition-benchmark/results.json",
+      "role": "six-round three-condition KPI source",
+      "sha256": "5ecebd210ced6a7752fcbc7fff815ba3a1bb1260417ddc1158550567c9a8ac24"
+    },
+    {
+      "path": "research/evidence/2026-09-01-effect-firewall-adversarial/results.json",
+      "role": "finite lattice, shape, prompt, monotonicity, and mutation source",
+      "sha256": "3310c16f40f109aee2c25fa788cc984f470b2431a1c958b24149e5faf3b06185"
+    },
+    {
+      "path": "apps/server/src/effect-policy.ts",
+      "role": "host-owned monotone Effect Firewall implementation",
+      "sha256": "7eb29b20515dc0720c9fafcf09942e5226b0bb9a793dbaba19d97fb79c1d164c"
+    },
+    {
+      "path": "apps/server/src/effect-capability.ts",
+      "role": "process-local one-use Effect Capability implementation",
+      "sha256": "31c6e3c98782015c4a412da0368bb1de0cd7ffcee0b8e55ffeba14eb17504164"
+    },
+    {
+      "path": "apps/server/src/effect-sink.ts",
+      "role": "cooperative exact-path process-local sink redemption and terminal receipt implementation",
+      "sha256": "dee279b9629134c001a169953c205b97b5b1b2cd30e3b4bcf2774c8feef946ac"
+    },
+    {
+      "path": "apps/server/src/agent-service.ts",
+      "role": "pre-dispatch policy, capability, and worker-ordering seam",
+      "sha256": "39276855c84da2a961d799230b61edaee9726ff4d7112d273bb6c2262f08de32"
+    },
+    {
+      "path": "apps/server/src/fixture-runner.ts",
+      "role": "deterministic typed-effect and admitted-drift worker fixture",
+      "sha256": "2cff0b18be2803bffde2835d74362ffcbff401beff51414b5e3ac5dd73113813"
+    },
+    {
+      "path": "apps/server/src/run-guard.ts",
+      "role": "separate post-run verification and rollback implementation",
+      "sha256": "2f7df4f07cb7b1cabe050941c8bed9934ee8d3c7c44a6f1c9d781632658d27c7"
+    },
+    {
+      "path": "research/evidence/2026-09-01-provenance-cleared-media-experiment/font8x8_basic.h",
+      "role": "commit-pinned 8x8 Basic Latin bitmap font used for every text glyph; retained header declares Public Domain",
+      "sha256": "49d8df366296b203ca3211bc0672cf2a762135bf12710735b6292756b19dffd5"
+    }
+  ],
+  "releaseAssets": {
+    "storyStill": {
+      "path": "docs/assets/nerveloop-effect-firewall-story.png",
+      "sha256": "cec5fa4530663bda917ea4cf79ffeb027f501ff3c7de77a5ea8507a550983847",
+      "sceneId": "05-proof-surface",
+      "generatedBy": "scripts/render-effect-firewall-candidate.mjs",
+      "imported": false
+    }
+  },
+  "renderScript": {
+    "path": "scripts/render-effect-firewall-candidate.mjs",
+    "sha256": "400fd4dca9447e1b68701e1232ca9184c4b19946f0f9886479dda80f235fd1c1"
+  },
+  "stableFallback": {
+    "path": "docs/demo/nerveloop-submission-draft.mp4",
+    "sha256Before": "ed34f33a709719569806e21fdc738cca7b6e9c3a5aeda00860e84f1e6ecca2c7",
+    "sha256After": "ed34f33a709719569806e21fdc738cca7b6e9c3a5aeda00860e84f1e6ecca2c7",
+    "sizeBefore": 3554966,
+    "sizeAfter": 3554966,
+    "unchanged": true,
+    "overwritten": false
+  },
+  "observedClaims": {
+    "enforcementMode": "DEMO_RUNNER=1 fixed local fixture path",
+    "typedIncident": "delete_mock_asset / protected",
+    "preDispatchReceipt": "workerSpawned false; changedFiles []; recovery not_needed; before manifest equals after manifest",
+    "sameAgentContinuity": "later safe fixture completed and was retained",
+    "sinkLifecycle": "normal committed; protected denial no grant; malicious unredeemed grant revoked EFFECT_SINK_CLOSED; later safe committed; no opaque grant persisted",
+    "defenseInDepth": "separate raw ambient-filesystem bypass fixture dispatched, was denied by RunGuard, and rolled back",
+    "benchmark": "six local rounds; recovery-target p50 reset/effect/RunGuard = 32/0/1",
+    "adversarial": "20 lattice cells, 130 comparable relations, 30 malformed proposals, 20 deterministic mutants"
+  },
+  "proofBoundary": {
+    "localOnly": true,
+    "deterministicFixture": true,
+    "demoRunnerModeRequired": true,
+    "modelCalls": 0,
+    "providerCalls": 0,
+    "hardenedSandboxClaim": false,
+    "ambientFilesystemAuthorityRemovedClaim": false,
+    "productionSecurityClaim": false,
+    "tiktokAccessClaim": false,
+    "publicUploadClaim": false,
+    "devpostSubmissionClaim": false
+  }
+}

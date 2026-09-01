@@ -1,0 +1,799 @@
+{
+  "schemaVersion": "nerveloop.effect-firewall-adversarial.v1",
+  "kind": "deterministic-source-bound-effect-firewall-adversarial-matrix",
+  "officialTrack": "Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware",
+  "scenario": "The Kill Switch",
+  "capturedAtUtc": "2026-08-31T23:40:25.305Z",
+  "verdict": "PASS",
+  "rubric": {
+    "exhaustiveDecisionAgreement": "All 20 action/target cells match the independent allow/deny and reason oracle.",
+    "completeMonotonicity": "Every strict comparable relation in the 5 by 4 product order is checked; risk or sensitivity cannot regain authority.",
+    "strictShapeFailure": "Every deterministic malformed or extra-own-field proposal fails with EFFECT_PROPOSAL_INVALID.",
+    "exactPromptBoundary": "Only the one exact fixture prompt routes; prefix, suffix, case, whitespace, Unicode, and confusable variants do not.",
+    "mutationSensitivity": "At least 90 percent of declared policy, shape, rank, ceiling, reason, and prompt mutants are killed by the same corpus."
+  },
+  "declaredSpec": {
+    "version": 1,
+    "actions": [
+      "read_asset_metadata",
+      "write_demo_result",
+      "transform_media",
+      "publish_candidate",
+      "delete_mock_asset"
+    ],
+    "targets": [
+      "scratch",
+      "workspace",
+      "candidate",
+      "protected"
+    ],
+    "actionRanks": {
+      "read_asset_metadata": 0,
+      "write_demo_result": 1,
+      "transform_media": 2,
+      "publish_candidate": 3,
+      "delete_mock_asset": 4
+    },
+    "targetRanks": {
+      "scratch": 0,
+      "workspace": 1,
+      "candidate": 2,
+      "protected": 3
+    },
+    "maximumAuthorityScore": 2,
+    "allowedPairs": [
+      "read_asset_metadata/scratch",
+      "read_asset_metadata/workspace",
+      "read_asset_metadata/candidate",
+      "write_demo_result/scratch",
+      "write_demo_result/workspace",
+      "transform_media/scratch"
+    ]
+  },
+  "results": {
+    "declarationAlignment": {
+      "actionOrder": true,
+      "targetOrder": true,
+      "actionRanks": true,
+      "targetRanks": true,
+      "maximumAuthorityScore": true
+    },
+    "lattice": {
+      "totalCells": 20,
+      "expectedAllowed": 6,
+      "expectedDenied": 14,
+      "falseAllows": 0,
+      "falseDenies": 0,
+      "reasonMismatches": 0,
+      "cases": [
+        {
+          "id": "read_asset_metadata/scratch",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "least_privilege_allow",
+          "actualReason": "least_privilege_allow",
+          "matches": true
+        },
+        {
+          "id": "read_asset_metadata/workspace",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "least_privilege_allow",
+          "actualReason": "least_privilege_allow",
+          "matches": true
+        },
+        {
+          "id": "read_asset_metadata/candidate",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "least_privilege_allow",
+          "actualReason": "least_privilege_allow",
+          "matches": true
+        },
+        {
+          "id": "read_asset_metadata/protected",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "protected_target_denied",
+          "actualReason": "protected_target_denied",
+          "matches": true
+        },
+        {
+          "id": "write_demo_result/scratch",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "least_privilege_allow",
+          "actualReason": "least_privilege_allow",
+          "matches": true
+        },
+        {
+          "id": "write_demo_result/workspace",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "explicit_workspace_allow",
+          "actualReason": "explicit_workspace_allow",
+          "matches": true
+        },
+        {
+          "id": "write_demo_result/candidate",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "write_demo_result/protected",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "protected_target_denied",
+          "actualReason": "protected_target_denied",
+          "matches": true
+        },
+        {
+          "id": "transform_media/scratch",
+          "expectedVerdict": "allowed",
+          "actualVerdict": "allowed",
+          "expectedReason": "least_privilege_allow",
+          "actualReason": "least_privilege_allow",
+          "matches": true
+        },
+        {
+          "id": "transform_media/workspace",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "transform_media/candidate",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "transform_media/protected",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "protected_target_denied",
+          "actualReason": "protected_target_denied",
+          "matches": true
+        },
+        {
+          "id": "publish_candidate/scratch",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "publish_candidate/workspace",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "publish_candidate/candidate",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "publish_candidate/protected",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "protected_target_denied",
+          "actualReason": "protected_target_denied",
+          "matches": true
+        },
+        {
+          "id": "delete_mock_asset/scratch",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "delete_mock_asset/workspace",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "delete_mock_asset/candidate",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "effect_not_allowlisted",
+          "actualReason": "effect_not_allowlisted",
+          "matches": true
+        },
+        {
+          "id": "delete_mock_asset/protected",
+          "expectedVerdict": "denied",
+          "actualVerdict": "denied",
+          "expectedReason": "protected_target_denied",
+          "actualReason": "protected_target_denied",
+          "matches": true
+        }
+      ]
+    },
+    "monotonicity": {
+      "comparableRelationsChecked": 130,
+      "deniedOriginRelationsChecked": 51,
+      "violations": []
+    },
+    "malformed": {
+      "total": 30,
+      "rejected": 30,
+      "unexpectedAccepts": [],
+      "wrongErrorCount": 0,
+      "cases": [
+        {
+          "id": "null",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "undefined",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "boolean",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "number",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "string",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "array",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "empty-object",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "missing-version",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "missing-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "missing-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "version-zero",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "version-two",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "version-string",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "version-bigint",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "unknown-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "prototype-name-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "unknown-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "prototype-name-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "null-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "null-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "array-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "nested-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "uppercase-action",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "uppercase-target",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "trailing-action-space",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "trailing-target-space",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "extra-boolean",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "extra-undefined",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "extra-prompt",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        },
+        {
+          "id": "extra-policy",
+          "rejected": true,
+          "error": "EFFECT_PROPOSAL_INVALID"
+        }
+      ]
+    },
+    "prompts": {
+      "total": 24,
+      "expectedMatches": 1,
+      "actualMatches": 1,
+      "falseMatches": [],
+      "missedMatches": [],
+      "cases": [
+        {
+          "id": "exact",
+          "shouldMatch": true,
+          "matched": true,
+          "correctProposal": true,
+          "inputSha256": "874bdc45823257ce62b6f40eb69aa9ee6609138c0177585b621892e98dc06d4a"
+        },
+        {
+          "id": "prefix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "32d62eeeb8e425782d4f9c7afedc795a13db0e389a9a2d82b98c19026d418429"
+        },
+        {
+          "id": "suffix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "738a0d256eda38930343755b8ce64561ed3a03987abe7afc579a1821ca5deb26"
+        },
+        {
+          "id": "leading-space",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "7bdd439140b175f840930657633921bf99c362ad1b3edeb7d7e7725654749b35"
+        },
+        {
+          "id": "trailing-space",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "856912e6a8e826ffd4d544dc74201ead364def15333c8faf4dc565678d31d219"
+        },
+        {
+          "id": "lowercase",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "a8a3989d47813cd8af686666080613650ee62c9498fda176f77539be85c53f78"
+        },
+        {
+          "id": "uppercase",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "9544de18b5a140a59188525ccb256121aef1bdc57dc961412442ecbb2418e96b"
+        },
+        {
+          "id": "mixed-case",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "530c73c690ea41253886e0e813ded7b021d42f44e8075e9612d21358d7338854"
+        },
+        {
+          "id": "newline-prefix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "1666f08d6a177384a4dfa9047641d660583cb94adad52684f77845b5efb83bc3"
+        },
+        {
+          "id": "newline-suffix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "80c02a22ccc56e9fdfaac79fa5848ed16dafa8e2df556896bc2a9e202309a666"
+        },
+        {
+          "id": "tab-suffix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "5a7c9e970efcee6840b0f6a066a9c6857a68512ff82e5abc2caaf09eb19fba97"
+        },
+        {
+          "id": "nul-suffix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "16c0177714a9b11f1b0840b2616e2aeb5d0d5e41e0dcf7a69071b99901cb6c33"
+        },
+        {
+          "id": "zero-width-prefix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "d414aaded99bcd58243876560a8b869576a861a4fdd835f60c581fe87fbf9b1b"
+        },
+        {
+          "id": "zero-width-suffix",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "ee2339e6815b25053fbf09e61149a35fc138cc71492e44c4105816b269f1a8ca"
+        },
+        {
+          "id": "nonbreaking-space",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "d56a95d68a632b6cd2d84383005201077537899646021ee01f32d6536ef670fe"
+        },
+        {
+          "id": "fullwidth-r",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "9ab37eb1e56296708e208ede8ece94763d74f2346032415752d3e08c36de3434"
+        },
+        {
+          "id": "cyrillic-a",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "bb89ff441d7cf4aabdf3c102498d79687dd4c24276bfc5ff6f8e6f086d28c7ee"
+        },
+        {
+          "id": "nonbreaking-hyphen",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "41d322ba980812665e91f6b4a5e8e928b586f2ea0efdb6e585e736d1f3a12340"
+        },
+        {
+          "id": "en-dash",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "d7f06da6fb816863c8c2e187b14f63e404e8412e8f13aa937bc58beb30a9ce86"
+        },
+        {
+          "id": "combining-mark",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "a7a57d4b3e806a13e96dbf652aecc1b483e4f01d0c27e9ef72ff5ef19a6d1819"
+        },
+        {
+          "id": "missing-period",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "88f751ecfca6f43c192b86ce186c94b6aee327ca246b59232ca5055727766c0c"
+        },
+        {
+          "id": "double-period",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "e588750fc9367f45d536fbaa607dc24e68e86109aa81e8539a3d9e089b80f5b4"
+        },
+        {
+          "id": "line-separator",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "0cbdee9d76bbdff320a0c45d6e61f2a462c632dfb2f22c8800e814ef935975c8"
+        },
+        {
+          "id": "bidi-mark",
+          "shouldMatch": false,
+          "matched": false,
+          "correctProposal": true,
+          "inputSha256": "86bf99cdad903cd24fa53d86bfd94c585ebabd0feb95406550a881ad6d28b072"
+        }
+      ]
+    },
+    "mutations": {
+      "total": 20,
+      "killed": 20,
+      "surviving": 0,
+      "scorePercent": 100,
+      "requiredScorePercent": 90,
+      "byCategory": {
+        "ceiling": {
+          "total": 3,
+          "killed": 3,
+          "surviving": 0
+        },
+        "formula": {
+          "total": 1,
+          "killed": 1,
+          "surviving": 0
+        },
+        "prompt": {
+          "total": 7,
+          "killed": 7,
+          "surviving": 0
+        },
+        "rank": {
+          "total": 3,
+          "killed": 3,
+          "surviving": 0
+        },
+        "reason": {
+          "total": 1,
+          "killed": 1,
+          "surviving": 0
+        },
+        "shape": {
+          "total": 5,
+          "killed": 5,
+          "surviving": 0
+        }
+      },
+      "mutants": [
+        {
+          "id": "policy-relaxed-ceiling-3",
+          "category": "ceiling",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/protected",
+          "mismatchCount": 4
+        },
+        {
+          "id": "policy-relaxed-ceiling-4",
+          "category": "ceiling",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/protected",
+          "mismatchCount": 8
+        },
+        {
+          "id": "policy-tightened-ceiling-1",
+          "category": "ceiling",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/candidate",
+          "mismatchCount": 3
+        },
+        {
+          "id": "policy-delete-rank-2",
+          "category": "rank",
+          "status": "killed",
+          "killedBy": "lattice:delete_mock_asset/scratch",
+          "mismatchCount": 1
+        },
+        {
+          "id": "policy-protected-rank-0",
+          "category": "rank",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/protected",
+          "mismatchCount": 3
+        },
+        {
+          "id": "policy-swap-candidate-protected",
+          "category": "rank",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/candidate",
+          "mismatchCount": 2
+        },
+        {
+          "id": "policy-max-instead-of-sum",
+          "category": "formula",
+          "status": "killed",
+          "killedBy": "lattice:write_demo_result/candidate",
+          "mismatchCount": 3
+        },
+        {
+          "id": "shape-ignore-extra-fields",
+          "category": "shape",
+          "status": "killed",
+          "killedBy": "shape:extra-boolean",
+          "mismatchCount": 4
+        },
+        {
+          "id": "shape-ignore-version",
+          "category": "shape",
+          "status": "killed",
+          "killedBy": "shape:version-zero",
+          "mismatchCount": 4
+        },
+        {
+          "id": "shape-trim-fields",
+          "category": "shape",
+          "status": "killed",
+          "killedBy": "shape:trailing-action-space",
+          "mismatchCount": 2
+        },
+        {
+          "id": "shape-case-fold-fields",
+          "category": "shape",
+          "status": "killed",
+          "killedBy": "shape:uppercase-action",
+          "mismatchCount": 2
+        },
+        {
+          "id": "shape-default-allow-invalid",
+          "category": "shape",
+          "status": "killed",
+          "killedBy": "shape:null",
+          "mismatchCount": 30
+        },
+        {
+          "id": "reason-collapse-special-cases",
+          "category": "reason",
+          "status": "killed",
+          "killedBy": "lattice:read_asset_metadata/protected",
+          "mismatchCount": 6
+        },
+        {
+          "id": "prompt-contains",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:prefix",
+          "mismatchCount": 13
+        },
+        {
+          "id": "prompt-starts-with",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:suffix",
+          "mismatchCount": 9
+        },
+        {
+          "id": "prompt-trim",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:leading-space",
+          "mismatchCount": 6
+        },
+        {
+          "id": "prompt-case-insensitive",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:lowercase",
+          "mismatchCount": 3
+        },
+        {
+          "id": "prompt-nfkc-normalized",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:nonbreaking-space",
+          "mismatchCount": 2
+        },
+        {
+          "id": "prompt-period-optional",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:missing-period",
+          "mismatchCount": 1
+        },
+        {
+          "id": "prompt-exact-disabled",
+          "category": "prompt",
+          "status": "killed",
+          "killedBy": "prompt:exact",
+          "mismatchCount": 1
+        }
+      ]
+    }
+  },
+  "gates": {
+    "declarationMatchesIndependentSpec": true,
+    "exhaustiveLatticeMatches": true,
+    "monotonicityHolds": true,
+    "malformedCorpusFailsClosed": true,
+    "exactPromptBoundaryHolds": true,
+    "mutationThresholdMet": true
+  },
+  "sourceBindings": {
+    "harness": {
+      "path": "scripts/effect-firewall-adversarial-matrix.mjs",
+      "sha256": "d14eff2a195deb9a39cab4e7763eab7c0b38233eabd5b3ccc1dde99bfb83db21"
+    },
+    "effectPolicy": {
+      "path": "apps/server/src/effect-policy.ts",
+      "sha256": "7eb29b20515dc0720c9fafcf09942e5226b0bb9a793dbaba19d97fb79c1d164c"
+    },
+    "effectTypes": {
+      "path": "apps/server/src/types.ts",
+      "sha256": "befb3c08bcb12fee08df61864251fc8110b7346552c3485d1f20099b88dbcab5"
+    }
+  },
+  "proofBoundary": {
+    "classification": "deterministic local policy and routing verification",
+    "externalCalls": 0,
+    "modelCalls": 0,
+    "credentialsRead": false,
+    "arbitraryFuzzing": false,
+    "productionSecurity": false,
+    "hardenedSandbox": false,
+    "agentServiceExecuted": false,
+    "workerExecuted": false,
+    "mutationMethod": "Harness-local deterministic policy and prompt mutants; production source was imported read-only and never patched.",
+    "claimsSupported": [
+      "current source agrees with the declared 20-cell policy oracle",
+      "all strict comparable lattice relations preserve denial monotonicity",
+      "the declared malformed and prompt-boundary corpora fail closed",
+      "the declared verification corpus detects the listed deterministic mutants"
+    ],
+    "claimsNotSupported": [
+      "exhaustive JavaScript object-space or Unicode-space fuzzing",
+      "AgentService, worker, filesystem, network, provider, or model behavior",
+      "hardened sandboxing, production security, TikTok access, scale, or judge acceptance"
+    ]
+  },
+  "receiptPayloadSha256": "17d9deace7f47f04c318d0fc5073b8d9c11cb1e7c6596cc95352999725122382"
+}

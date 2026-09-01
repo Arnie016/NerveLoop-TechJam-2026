@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "nerveloop.effect-sink-redemption-lab.v3",
+  "kind": "source-bound-process-local-sink-redemption-experiment",
+  "officialTrack": "Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware",
+  "scenario": "The Kill Switch",
+  "capturedAtUtc": "2026-08-31T23:45:34.633Z",
+  "completedAtUtc": "2026-08-31T23:45:34.871Z",
+  "durationMs": 237.589,
+  "runtime": {
+    "node": "v25.8.2",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "verdict": "PASS",
+  "researchSources": [
+    {
+      "title": "If Agents Were Angels, No Governance Would Be Necessary: Out-of-Band Policy Enforcement at a Trusted Tool Boundary",
+      "url": "https://arxiv.org/abs/2608.27646",
+      "designUse": "Keep effect authorization outside agent reasoning and mediate the typed operation and resource at the trusted boundary.",
+      "nonClaim": "This lab does not reproduce the paper's proxy, Cedar core, benchmark, data filtering, or security guarantees."
+    },
+    {
+      "title": "Capsicum: Practical Capabilities for UNIX",
+      "url": "https://www.usenix.org/conference/usenixsecurity10/legacy-presentation/capsicum-practical-capabilities-unix",
+      "designUse": "Bind narrowly scoped authority to an object and make the effect path present that authority instead of relying on ambient privilege.",
+      "nonClaim": "This user-space Node prototype is not Capsicum, kernel capability mode, or a hardened sandbox."
+    },
+    {
+      "title": "Macaroons: Cookies with Contextual Caveats for Decentralized Authorization in the Cloud",
+      "url": "https://www.ndss-symposium.org/ndss2014/ndss-2014-programme/macaroons-cookies-contextual-caveats-decentralized-authorization-cloud/",
+      "designUse": "Cryptographically bind contextual restrictions such as who, what, where, and when to an authorization token.",
+      "nonClaim": "The envelope below is a process-local HMAC prototype, not a macaroon, delegation system, or distributed credential."
+    },
+    {
+      "title": "TLA+ Model Checking Made Symbolic",
+      "url": "https://www.microsoft.com/en-us/research/publication/tla-model-checking-made-symbolic/",
+      "designUse": "Check a finite transition system against explicit safety invariants rather than relying only on example traces.",
+      "nonClaim": "This is a bounded deterministic state-space experiment, not a TLA+ specification or formal proof."
+    }
+  ],
+  "design": "Attenuate a consumed host dispatch capability into one HMAC-bound, path-bound, payload-bound, time-bound sink envelope; redeem atomically at the filesystem effect boundary before I/O.",
+  "results": {
+    "lattice": {
+      "totalCells": 20,
+      "allowed": 6,
+      "denied": 14,
+      "deniedCapabilitiesIssued": 0,
+      "allowedCapabilitiesConsumed": 6,
+      "sinkMintable": 1,
+      "broaderAllowedScopesRejectedBySink": 5,
+      "outcomes": [
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "scratch",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "SINK_CAPABILITY_SCOPE_MISMATCH"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "workspace",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "SINK_CAPABILITY_SCOPE_MISMATCH"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "candidate",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "SINK_CAPABILITY_SCOPE_MISMATCH"
+        },
+        {
+          "action": "read_asset_metadata",
+          "targetClass": "protected",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "scratch",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "SINK_CAPABILITY_SCOPE_MISMATCH"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "workspace",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "minted"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "candidate",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "write_demo_result",
+          "targetClass": "protected",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "scratch",
+          "decision": "allowed",
+          "capabilityState": "consumed",
+          "sinkResult": "SINK_CAPABILITY_SCOPE_MISMATCH"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "workspace",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "candidate",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "transform_media",
+          "targetClass": "protected",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "scratch",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "workspace",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "candidate",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "publish_candidate",
+          "targetClass": "protected",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "scratch",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "workspace",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "candidate",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        },
+        {
+          "action": "delete_mock_asset",
+          "targetClass": "protected",
+          "decision": "denied",
+          "issueError": "EFFECT_CAPABILITY_DECISION_DENIED"
+        }
+      ]
+    },
+    "tamperMatrix": {
+      "envelopeFieldsMutated": 15,
+      "envelopeMutationCombinations": 32767,
+      "envelopeMutationsRejected": 32767,
+      "envelopeMutationEscapes": 0,
+      "envelopeErrors": {
+        "SINK_CAPABILITY_UNKNOWN": 16384,
+        "SINK_CAPABILITY_TAMPERED": 16383
+      },
+      "contextualFieldsMutated": 6,
+      "contextualMutationCombinations": 63,
+      "contextualMutationsRejected": 63,
+      "contextualMutationEscapes": 0,
+      "contextualErrors": {
+        "SINK_CAPABILITY_CONTEXT_MISMATCH": 63
+      },
+      "stateBeforeValid": "dispatch_ready",
+      "validWrite": {
+        "state": "redeemed",
+        "relativePath": "demo-result.md",
+        "payloadSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca",
+        "bytesWritten": 55
+      },
+      "writtenPayloadSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca",
+      "replayError": "SINK_CAPABILITY_ALREADY_REDEEMED",
+      "finalState": "redeemed"
+    },
+    "concurrency": {
+      "attempts": 64,
+      "successes": 1,
+      "rejections": 63,
+      "rejectionCodes": {
+        "SINK_CAPABILITY_ALREADY_REDEEMED": 63
+      },
+      "finalState": "redeemed",
+      "writtenPayloadSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca"
+    },
+    "expiry": {
+      "exactBoundaryRejected": true,
+      "error": "SINK_CAPABILITY_EXPIRED",
+      "fileCreated": false,
+      "state": "dispatch_ready",
+      "sinkExpiresNoLaterThanParent": true,
+      "sinkTtlMs": 10
+    },
+    "symlinkFault": {
+      "effectError": "SINK_EFFECT_FAILED",
+      "externalSentinelUnchanged": true,
+      "destinationStillSymlink": true,
+      "stateAfterFault": "failed_closed",
+      "retryError": "SINK_CAPABILITY_ALREADY_REDEEMED",
+      "failStopSpentGrant": true
+    },
+    "parentDerivation": {
+      "firstChildState": "dispatch_ready",
+      "secondMintError": "SINK_PARENT_ALREADY_DERIVED",
+      "oneParentOneChild": true
+    },
+    "rootReplacement": {
+      "error": "SINK_ROOT_CHANGED",
+      "externalFileCreated": false,
+      "stateAfterFault": "failed_closed",
+      "retryError": "SINK_CAPABILITY_ALREADY_REDEEMED",
+      "deterministicReplacementRejected": true
+    },
+    "mutablePayload": {
+      "originalSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca",
+      "mutatedCallerSha256": "d5e285683cd4efc02d021a5c62014694958901005d6f71e89e0989fac77e4072",
+      "writtenSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca",
+      "receiptSha256": "c88e6d7078082fc9daf20c63a554861195d4112627b02ff6d379c067ffc058ca",
+      "callerMutationDidNotChangeWrite": true
+    },
+    "capabilityLifecycle": {
+      "alphabet": [
+        "claim_valid",
+        "claim_binding_drift",
+        "consume_valid"
+      ],
+      "maximumTraceLength": 4,
+      "traces": 120,
+      "operations": 426,
+      "mismatches": 0,
+      "maximumSuccessfulClaims": 1,
+      "maximumSuccessfulConsumes": 1
+    }
+  },
+  "gates": {
+    "fullPolicyLatticeFailsClosed": true,
+    "sinkAuthorityIsAttenuated": true,
+    "allDeclaredEnvelopeMutationsRejected": true,
+    "allDeclaredContextMutationsRejected": true,
+    "failedMutationsDoNotSpendValidGrant": true,
+    "exactEffectSucceedsOnce": true,
+    "concurrentRedemptionIsAtMostOnce": true,
+    "expiryBoundaryFailsClosed": true,
+    "derivedLeaseDoesNotOutliveParent": true,
+    "symlinkFaultCannotChangeExternalTarget": true,
+    "sinkFaultConsumesAuthorityBeforeIo": true,
+    "oneParentDerivesOnlyOneChild": true,
+    "deterministicRootReplacementFailsClosed": true,
+    "mutableCallerPayloadIsSnapshottedBeforeAwait": true,
+    "capabilityLifecycleMatchesIndependentOracle": true
+  },
+  "sourceBindings": {
+    "harness": {
+      "path": "scripts/effect-sink-redemption-lab.mjs",
+      "sha256": "6d589ade8822d20871b24b3ecf7d7f100bfe021128394cd2615226836ca7452d"
+    },
+    "effectCapability": {
+      "path": "apps/server/src/effect-capability.ts",
+      "sha256": "31c6e3c98782015c4a412da0368bb1de0cd7ffcee0b8e55ffeba14eb17504164"
+    },
+    "effectPolicy": {
+      "path": "apps/server/src/effect-policy.ts",
+      "sha256": "7eb29b20515dc0720c9fafcf09942e5226b0bb9a793dbaba19d97fb79c1d164c"
+    },
+    "effectTypes": {
+      "path": "apps/server/src/types.ts",
+      "sha256": "befb3c08bcb12fee08df61864251fc8110b7346552c3485d1f20099b88dbcab5"
+    }
+  },
+  "proofBoundary": {
+    "classification": "deterministic local sink-side reference-monitor prototype and adversarial experiment",
+    "externalCalls": 0,
+    "modelCalls": 0,
+    "credentialsRead": false,
+    "localFilesystemEffects": true,
+    "syntheticFixtureOnly": true,
+    "productionSecurity": false,
+    "hardenedSandbox": false,
+    "labHarnessExecutedProductBroker": false,
+    "durableAuthority": false,
+    "crossProcessAuthority": false,
+    "deterministicRootReplacementResistance": true,
+    "concurrentAncestorSwapExhausted": false,
+    "claimsSupported": [
+      "the current host registry's six allowed lattice cells can be consumed and fourteen denied cells mint no parent capability",
+      "the experimental sink narrows those six allowed cells to one exact write/workspace scope",
+      "all 32767 declared envelope mutation combinations and all 63 declared request-context mutation combinations were rejected locally",
+      "one of 64 concurrent exact redemptions succeeded and 63 were rejected in one Node process",
+      "the exact expiry boundary and a pre-existing symlink target failed closed in the declared fixture",
+      "one consumed parent derived only one child grant in the declared process-local registry",
+      "a deterministic pre-redemption workspace-root replacement was rejected before filesystem I/O",
+      "mutating the caller-owned payload after redemption began did not change the snapshotted bytes written",
+      "all 120 bounded capability traces covering 426 operations matched the independent lifecycle oracle"
+    ],
+    "claimsNotSupported": [
+      "this isolated lab receipt by itself proves the separate cooperative AgentService-to-FixtureRunner product integration; that path has its own functional receipt and server tests",
+      "arbitrary JavaScript, filesystem, symlink, hard-link, process, concurrent ancestor-swap, or race-state exhaustion",
+      "authentication, durable or distributed authority, provider interception, kernel isolation, hardened sandboxing, production scale, or TikTok integration"
+    ]
+  },
+  "receiptPayloadSha256": "d6ef290f143ca3344d25197a17da25b09c0d08973894a43e08469ace8ed40b9e"
+}

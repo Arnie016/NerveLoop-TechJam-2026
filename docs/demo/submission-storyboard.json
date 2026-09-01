@@ -1,0 +1,116 @@
+{
+  "version": 2,
+  "title": "NerveLoop: the nervous system beneath coding agents",
+  "label": "PRIVATE HISTORICAL FALLBACK METADATA / MEDIA EXCLUDED / DO NOT PUBLISH",
+  "voice": "private macOS Samantha System Voice timing reference; do not publish",
+  "currentCandidate": false,
+  "selectedForUpload": false,
+  "publicMediaIncluded": false,
+  "proofBoundary": "Text-only historical fallback metadata. No screenshot, voice recording, or video bytes are part of the public source contract.",
+  "wordsPerMinute": 168,
+  "scenes": [
+    {
+      "id": "01-contradiction",
+      "duration": 8,
+      "title": "This cut looks valid. It is wrong.",
+      "lines": [
+        "Requested window: 2.0–4.0 seconds",
+        "Returned cut: 6.0 seconds",
+        "RETAIN DENIED"
+      ],
+      "footer": "The agent may propose a repair. It may not grade or retain it.",
+      "narration": "This cut looks valid. It is wrong. The agent proposes a repair, but cannot grade or retain it."
+    },
+    {
+      "id": "02-control-split",
+      "duration": 12,
+      "title": "The brain can change. The nervous system stays fixed.",
+      "visual": "historical architecture visual deliberately omitted from public source",
+      "footer": "Any coding agent may plan. Only the host grants authority and accepts proof.",
+      "narration": "NerveLoop separates brain from nervous system. The host alone owns admission, verification, evidence freshness, and the retain, restore, or hold decision."
+    },
+    {
+      "id": "03-media-incident",
+      "duration": 20,
+      "title": "The verifier decodes the media—not just the filename.",
+      "visual": "historical incident-room visual deliberately omitted from public source",
+      "footer": "Owned H.264/AAC fixtures; frame and PCM evidence; no TikTok data.",
+      "narration": "The verifier decodes video frames and PCM audio. It rejects the six-second boundary bug, rejects a same-duration wrong-scene control, and accepts only the two-second reference-equivalent cut. A separate DecodeBridge canary checks three hundred sixty hardware-decoded frames against CPU and Metal evidence."
+    },
+    {
+      "id": "04-causal-fault",
+      "duration": 20,
+      "title": "One timestamp tick closes only dependent authority.",
+      "lines": [
+        "Presentation timeline: REVOKED",
+        "Temporal selector: REVOKED",
+        "Retain authority: CLOSED",
+        "Input · decode · parity: STILL CURRENT"
+      ],
+      "footer": "A declared proof graph turns one failure into an exact blast radius.",
+      "narration": "Now inject one presentation-timestamp tick. The timeline proof fails. Temporal selection and retain authority depend on it, so both lose authority. Input identity, hardware decode, and CPU-Metal parity remain digest-valid. The whole run does not restart."
+    },
+    {
+      "id": "05-causal-reflex",
+      "duration": 18,
+      "title": "Selective recovery executes 3 verifiers, not 6.",
+      "visual": "historical causal-reflex visual deliberately omitted from public source",
+      "evidenceSummary": "3 verifier calls; 3 reused proofs; full-replay root matched; 0 stale escapes",
+      "footer": "50% is verifier-graph work in one fixture—not measured latency or energy.",
+      "narration": "Reconcile invokes the three affected verifier functions and reuses three sealed proofs. A six-call reference replay computes the same evidence root. Any divergence fails closed. The result is three of six replayed, three reused, and zero stale promotion escapes."
+    },
+    {
+      "id": "06-authority",
+      "duration": 18,
+      "title": "A coding agent cannot manufacture its own green check.",
+      "lines": [
+        "Artifact-bound one-use lease",
+        "Host-selected independent verifier",
+        "Exact checkpoint and source digests",
+        "Second lease consume: DENIED"
+      ],
+      "footer": "Tools are not proof. A passing receipt is not reusable authority.",
+      "narration": "The runner still cannot manufacture green. One canary consumes a lease bound to the run, input, executable, source, policy, verifier, and regression. A separate process grades it. The terminal decision closes the lease, and a second consume is denied."
+    },
+    {
+      "id": "07-earned-memory",
+      "duration": 17,
+      "title": "Failure becomes memory only after it earns trust.",
+      "visual": "historical incident-room visual deliberately omitted from public source",
+      "footer": "Origin failure → independent reproduction → exact-gate replay → retained regression.",
+      "narration": "The timestamp fault becomes durable memory only after origin failure, independent reproduction, and pre-retention replay agree at the exact gate. Every later accepted canary replays it again. Failed prose and tool permissions never enter trusted memory."
+    },
+    {
+      "id": "08-architecture",
+      "duration": 19,
+      "title": "Dynamic strategy inside a host-owned fixed reflex.",
+      "visual": "historical architecture visual deliberately omitted from public source",
+      "footer": "Observe → choose → propose | admit → checkpoint → verify → retain, recover, or hold.",
+      "narration": "The agent owns proposals. The host owns admission, checkpoints, verification, and retention. A failed guarantee revokes its descendants; independently current proof survives. Ambiguous state becomes a visible recovery hold."
+    },
+    {
+      "id": "09-failure-classes",
+      "duration": 15,
+      "title": "Three failures. Three different defenses.",
+      "lines": [
+        "Wrong content → decoded-media oracle",
+        "Broken timeline → causal replay",
+        "Stale authority → one-use lease denial"
+      ],
+      "footer": "A counterfactual matrix also checks input, timeline, parity, and retention topology.",
+      "narration": "Wrong content meets a decoded-media oracle. Broken timeline evidence triggers selective replay. Stale authority meets one-use denial. Four topology counterfactuals change the fault origin, and malformed graphs fail closed."
+    },
+    {
+      "id": "10-boundary",
+      "duration": 12,
+      "title": "Other systems record what agents did.",
+      "lines": [
+        "NerveLoop controls what they may still retain.",
+        "Local owned-media evidence · one M5 Max",
+        "No TikTok access or production-scale claim"
+      ],
+      "footer": "A model-agnostic promotion, recovery, and evidence plane for long-running engineers.",
+      "narration": "This is local owned-media evidence on one M5 Max, not TikTok scale. Other systems record what agents did. NerveLoop controls what they may still retain."
+    }
+  ]
+}

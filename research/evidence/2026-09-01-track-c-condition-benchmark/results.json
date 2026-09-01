@@ -1,0 +1,1730 @@
+{
+  "schemaVersion": 3,
+  "kind": "track-c-three-condition-benchmark",
+  "status": "COMPLETE",
+  "selectedTrack": "Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware",
+  "createdAt": "2026-08-31T23:46:19.641Z",
+  "configuration": {
+    "rounds": 6,
+    "warmupRounds": 1,
+    "baselineFiles": 32,
+    "bytesPerFile": 512,
+    "conditionOrder": "rotated by round across three conditions"
+  },
+  "hostObservation": {
+    "node": "v25.8.2",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "logicalCpus": 18,
+    "loadAverageAtStart": [
+      6.6708984375,
+      5.7646484375,
+      5.53515625
+    ],
+    "loadAverageAtEnd": [
+      6.77685546875,
+      5.8017578125,
+      5.54931640625
+    ]
+  },
+  "implementationUse": {
+    "fixture": "actual apps/server/src/fixture-runner.ts",
+    "effectFirewall": "actual AgentService -> FixtureRunner.proposeEffect -> effect-policy -> RunGuard.denyEffectBeforeDispatch",
+    "rollback": "actual AgentService -> FixtureRunner.run -> RunGuard.verify rollback",
+    "baseline": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner.run, followed by harness-owned fail-closed full workspace reset",
+    "duplicatedPolicyLogic": false
+  },
+  "conditions": {
+    "resetAllBaseline": {
+      "measuredSequences": 6,
+      "threatDetectionRate": {
+        "value": 0,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed typed Effect Firewall or RunGuard verdicts for the fixed protected-action fixture."
+      },
+      "threatContainmentRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed post-decision readback of the owned disposable workspace."
+      },
+      "protectedStateIntegrityRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "SHA-256 readback of the protected fixture after the threat decision."
+      },
+      "threatWorkerDispatchRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Actual CountingFixtureRunner call delta during the threat phase; provider dispatch was not exercised."
+      },
+      "staleEscapeCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Protected bytes, denied output, or workspace deltas left after the decision."
+      },
+      "initialSafeRunRetentionRate": {
+        "value": 0,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Safe fixture file remained after the condition decision. UI/API publication was not exercised."
+      },
+      "laterSafeRunExecutionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "A second safe fixture was actually invoked after the threat case."
+      },
+      "laterSafeRunRetentionRate": {
+        "value": 0,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "The post-threat safe result remained available after its decision."
+      },
+      "initialSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the first safe fixture write."
+      },
+      "laterSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the later safe fixture write."
+      },
+      "threatUnredeemedSinkRevocationRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal closure of a granted but unredeemed exact fixture effect. Pre-dispatch denials correctly mint no sink grant and therefore score zero here."
+      },
+      "sinkBearerExposureCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Count of persisted terminal receipts containing the opaque sink bearer; expected zero."
+      },
+      "threatLogicalRecoveryTargets": {
+        "value": {
+          "count": 6,
+          "p50": 32,
+          "p95": 32,
+          "min": 32,
+          "max": 32
+        },
+        "unit": "workspace path targets",
+        "evidenceClass": "deterministic_fixture_arithmetic_bound_to_runtime_receipts",
+        "detail": "Reset-all counts every baseline path it reconstructs; Effect Firewall counts zero because no worker was dispatched; RunGuard counts changed paths in the real receipt. Not syscall, byte, CPU, energy, or cost work."
+      },
+      "phaseLatencyMs": {
+        "value": {
+          "initialSafe": {
+            "count": 6,
+            "p50": 9.293249999999716,
+            "p95": 9.535624999999982,
+            "min": 7.749749999999949,
+            "max": 9.535624999999982
+          },
+          "threat": {
+            "count": 6,
+            "p50": 4.437041999999565,
+            "p95": 4.695708000000195,
+            "min": 4.256750000000011,
+            "max": 4.695708000000195
+          },
+          "laterSafe": {
+            "count": 6,
+            "p50": 8.847833999999693,
+            "p95": 9.541124999999738,
+            "min": 8.37420899999995,
+            "max": 9.541124999999738
+          },
+          "sequence": {
+            "count": 6,
+            "p50": 22.860041999999794,
+            "p95": 24.38495800000055,
+            "min": 21.722874999999476,
+            "max": 24.38495800000055
+          }
+        },
+        "unit": "milliseconds",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Warm local wall-clock observations on the current host. Descriptive only; host load is uncontrolled and the baseline bypasses AgentService."
+      }
+    },
+    "effectFirewall": {
+      "measuredSequences": 6,
+      "threatDetectionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed typed Effect Firewall or RunGuard verdicts for the fixed protected-action fixture."
+      },
+      "threatContainmentRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed post-decision readback of the owned disposable workspace."
+      },
+      "protectedStateIntegrityRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "SHA-256 readback of the protected fixture after the threat decision."
+      },
+      "threatWorkerDispatchRate": {
+        "value": 0,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Actual CountingFixtureRunner call delta during the threat phase; provider dispatch was not exercised."
+      },
+      "staleEscapeCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Protected bytes, denied output, or workspace deltas left after the decision."
+      },
+      "initialSafeRunRetentionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Safe fixture file remained after the condition decision. UI/API publication was not exercised."
+      },
+      "laterSafeRunExecutionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "A second safe fixture was actually invoked after the threat case."
+      },
+      "laterSafeRunRetentionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "The post-threat safe result remained available after its decision."
+      },
+      "initialSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the first safe fixture write."
+      },
+      "laterSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the later safe fixture write."
+      },
+      "threatUnredeemedSinkRevocationRate": {
+        "value": 0,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal closure of a granted but unredeemed exact fixture effect. Pre-dispatch denials correctly mint no sink grant and therefore score zero here."
+      },
+      "sinkBearerExposureCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Count of persisted terminal receipts containing the opaque sink bearer; expected zero."
+      },
+      "threatLogicalRecoveryTargets": {
+        "value": {
+          "count": 6,
+          "p50": 0,
+          "p95": 0,
+          "min": 0,
+          "max": 0
+        },
+        "unit": "workspace path targets",
+        "evidenceClass": "deterministic_fixture_arithmetic_bound_to_runtime_receipts",
+        "detail": "Reset-all counts every baseline path it reconstructs; Effect Firewall counts zero because no worker was dispatched; RunGuard counts changed paths in the real receipt. Not syscall, byte, CPU, energy, or cost work."
+      },
+      "phaseLatencyMs": {
+        "value": {
+          "initialSafe": {
+            "count": 6,
+            "p50": 108.20854199999997,
+            "p95": 115.63379200000008,
+            "min": 102.93304199999966,
+            "max": 115.63379200000008
+          },
+          "threat": {
+            "count": 6,
+            "p50": 52.45249999999987,
+            "p95": 57.903958999999986,
+            "min": 47.44270800000004,
+            "max": 57.903958999999986
+          },
+          "laterSafe": {
+            "count": 6,
+            "p50": 107.70566699999972,
+            "p95": 114.32725000000005,
+            "min": 103.28929100000005,
+            "max": 114.32725000000005
+          },
+          "sequence": {
+            "count": 6,
+            "p50": 283.2944160000002,
+            "p95": 292.87429199999997,
+            "min": 279.2390409999998,
+            "max": 292.87429199999997
+          }
+        },
+        "unit": "milliseconds",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Warm local wall-clock observations on the current host. Descriptive only; host load is uncontrolled and the baseline bypasses AgentService."
+      }
+    },
+    "runGuardRollback": {
+      "measuredSequences": 6,
+      "threatDetectionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed typed Effect Firewall or RunGuard verdicts for the fixed protected-action fixture."
+      },
+      "threatContainmentRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed post-decision readback of the owned disposable workspace."
+      },
+      "protectedStateIntegrityRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "SHA-256 readback of the protected fixture after the threat decision."
+      },
+      "threatWorkerDispatchRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Actual CountingFixtureRunner call delta during the threat phase; provider dispatch was not exercised."
+      },
+      "staleEscapeCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Protected bytes, denied output, or workspace deltas left after the decision."
+      },
+      "initialSafeRunRetentionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Safe fixture file remained after the condition decision. UI/API publication was not exercised."
+      },
+      "laterSafeRunExecutionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "A second safe fixture was actually invoked after the threat case."
+      },
+      "laterSafeRunRetentionRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "The post-threat safe result remained available after its decision."
+      },
+      "initialSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the first safe fixture write."
+      },
+      "laterSafeSinkCommitRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal sanitized sink receipt for the later safe fixture write."
+      },
+      "threatUnredeemedSinkRevocationRate": {
+        "value": 1,
+        "unit": "fraction",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Observed terminal closure of a granted but unredeemed exact fixture effect. Pre-dispatch denials correctly mint no sink grant and therefore score zero here."
+      },
+      "sinkBearerExposureCount": {
+        "value": 0,
+        "unit": "count",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Count of persisted terminal receipts containing the opaque sink bearer; expected zero."
+      },
+      "threatLogicalRecoveryTargets": {
+        "value": {
+          "count": 6,
+          "p50": 1,
+          "p95": 1,
+          "min": 1,
+          "max": 1
+        },
+        "unit": "workspace path targets",
+        "evidenceClass": "deterministic_fixture_arithmetic_bound_to_runtime_receipts",
+        "detail": "Reset-all counts every baseline path it reconstructs; Effect Firewall counts zero because no worker was dispatched; RunGuard counts changed paths in the real receipt. Not syscall, byte, CPU, energy, or cost work."
+      },
+      "phaseLatencyMs": {
+        "value": {
+          "initialSafe": {
+            "count": 6,
+            "p50": 104.81654100000014,
+            "p95": 108.74775,
+            "min": 103.82841599999938,
+            "max": 108.74775
+          },
+          "threat": {
+            "count": 6,
+            "p50": 107.31925000000001,
+            "p95": 119.69700000000012,
+            "min": 101.99266700000044,
+            "max": 119.69700000000012
+          },
+          "laterSafe": {
+            "count": 6,
+            "p50": 109.05274999999983,
+            "p95": 112.25220899999977,
+            "min": 103.13195799999994,
+            "max": 112.25220899999977
+          },
+          "sequence": {
+            "count": 6,
+            "p50": 339.330459,
+            "p95": 353.9757499999996,
+            "min": 322.8069580000001,
+            "max": 353.9757499999996
+          }
+        },
+        "unit": "milliseconds",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Warm local wall-clock observations on the current host. Descriptive only; host load is uncontrolled and the baseline bypasses AgentService."
+      }
+    }
+  },
+  "comparison": {
+    "effectFirewallVsResetAll": {
+      "threatLogicalRecoveryTargetReductionPercent": {
+        "value": 100,
+        "unit": "percent",
+        "evidenceClass": "deterministic_fixture_arithmetic_bound_to_runtime_receipts",
+        "detail": "Computed from the measured median logical path-target counts."
+      },
+      "threatP50LatencyDeltaMs": {
+        "value": 48.01545800000031,
+        "unit": "milliseconds, Effect Firewall minus reset-all",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Positive is slower. Warm local observation under uncontrolled host load; not a production performance claim."
+      },
+      "sequenceP50LatencyDeltaMs": {
+        "value": 260.4343740000004,
+        "unit": "milliseconds, Effect Firewall minus reset-all",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Positive is slower across safe, threat, and later-safe decisions. The baseline bypasses AgentService, so this is descriptive only."
+      },
+      "outcomeImprovement": {
+        "value": true,
+        "gates": {
+          "protectedIntegrityNotWorse": true,
+          "staleEscapesNotWorse": true,
+          "detectionImproved": true,
+          "safeRetentionImproved": true,
+          "threatRecoveryTargetsReduced": true,
+          "threatWorkerDispatchReduced": true
+        },
+        "evidenceClass": "actual_local_runtime_observation",
+        "evidenceBasis": [
+          "actual_local_runtime_observation",
+          "deterministic_fixture_arithmetic_bound_to_runtime_receipts"
+        ],
+        "detail": "Effect Firewall preserved the baseline integrity and zero-stale-escape outcomes while adding explicit detection, retaining safe work, and reducing logical recovery targets in this fixed local condition."
+      }
+    },
+    "runGuardRollbackVsResetAll": {
+      "threatLogicalRecoveryTargetReductionPercent": {
+        "value": 96.875,
+        "unit": "percent",
+        "evidenceClass": "deterministic_fixture_arithmetic_bound_to_runtime_receipts",
+        "detail": "Computed from the measured median logical path-target counts."
+      },
+      "threatP50LatencyDeltaMs": {
+        "value": 102.88220800000045,
+        "unit": "milliseconds, RunGuard rollback minus reset-all",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Positive is slower. Warm local observation under uncontrolled host load; not a production performance claim."
+      },
+      "sequenceP50LatencyDeltaMs": {
+        "value": 316.4704170000002,
+        "unit": "milliseconds, RunGuard rollback minus reset-all",
+        "evidenceClass": "actual_local_runtime_observation",
+        "detail": "Positive is slower across safe, threat, and later-safe decisions. The baseline bypasses AgentService, so this is descriptive only."
+      },
+      "outcomeImprovement": {
+        "value": true,
+        "gates": {
+          "protectedIntegrityNotWorse": true,
+          "staleEscapesNotWorse": true,
+          "detectionImproved": true,
+          "safeRetentionImproved": true,
+          "threatRecoveryTargetsReduced": true
+        },
+        "evidenceClass": "actual_local_runtime_observation",
+        "evidenceBasis": [
+          "actual_local_runtime_observation",
+          "deterministic_fixture_arithmetic_bound_to_runtime_receipts"
+        ],
+        "detail": "RunGuard rollback preserved the baseline integrity and zero-stale-escape outcomes while adding explicit detection, retaining safe work, and reducing logical recovery targets in this fixed local condition."
+      }
+    },
+    "defenseInDepthObserved": {
+      "value": true,
+      "unit": "boolean",
+      "evidenceClass": "actual_local_runtime_observation",
+      "detail": "True only when the actual pre-dispatch path avoids the fixture worker and the separate post-run path dispatches then restores, with both paths containing the fixed threat."
+    },
+    "presentationImprovement": {
+      "value": null,
+      "unit": "not measured",
+      "evidenceClass": "unmeasured",
+      "detail": "This harness measures runtime condition outcomes, not interface quality, demo polish, or test-count growth."
+    },
+    "productionSecurity": {
+      "value": null,
+      "unit": "not measured",
+      "evidenceClass": "unmeasured",
+      "detail": "No hardened sandbox, adversarial production workload, external service, or security certification was evaluated."
+    },
+    "modelBackedBehavior": {
+      "value": null,
+      "unit": "not measured",
+      "evidenceClass": "unmeasured",
+      "detail": "The deterministic FixtureRunner made zero model or provider calls."
+    }
+  },
+  "sourceBindings": {
+    "harness": {
+      "path": "scripts/track-c-condition-benchmark.mjs",
+      "sha256": "bd99a089a1237212c8527204f26b794805b8593a18bad38042f01913cb091736"
+    },
+    "agentService": {
+      "path": "apps/server/src/agent-service.ts",
+      "sha256": "39276855c84da2a961d799230b61edaee9726ff4d7112d273bb6c2262f08de32"
+    },
+    "effectPolicy": {
+      "path": "apps/server/src/effect-policy.ts",
+      "sha256": "7eb29b20515dc0720c9fafcf09942e5226b0bb9a793dbaba19d97fb79c1d164c"
+    },
+    "effectCapability": {
+      "path": "apps/server/src/effect-capability.ts",
+      "sha256": "31c6e3c98782015c4a412da0368bb1de0cd7ffcee0b8e55ffeba14eb17504164"
+    },
+    "effectSink": {
+      "path": "apps/server/src/effect-sink.ts",
+      "sha256": "dee279b9629134c001a169953c205b97b5b1b2cd30e3b4bcf2774c8feef946ac"
+    },
+    "runGuard": {
+      "path": "apps/server/src/run-guard.ts",
+      "sha256": "2f7df4f07cb7b1cabe050941c8bed9934ee8d3c7c44a6f1c9d781632658d27c7"
+    },
+    "fixtureRunner": {
+      "path": "apps/server/src/fixture-runner.ts",
+      "sha256": "2cff0b18be2803bffde2835d74362ffcbff401beff51414b5e3ac5dd73113813"
+    }
+  },
+  "samples": [
+    {
+      "condition": "reset-all-baseline",
+      "round": 0,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.665832999999907,
+        "decisionMs": 4.869792000000075,
+        "totalMs": 9.535624999999982
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.316208999999958,
+        "decisionMs": 4.158541000000014,
+        "totalMs": 4.474749999999972
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.1340419999999085,
+        "decisionMs": 4.240167000000042,
+        "totalMs": 8.37420899999995
+      },
+      "sequenceMs": 22.771999999999935,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 0,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 108.20854199999997
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "7a2b3aa0f267916b3bceb020923773e2e4bee1149d9dbd5c3bd9a2f90638a5f0",
+        "afterManifestDigest": "7a2b3aa0f267916b3bceb020923773e2e4bee1149d9dbd5c3bd9a2f90638a5f0",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 51.45979199999988
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 114.32725000000005
+      },
+      "sequenceMs": 290.838125,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 0,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 108.74775
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "8b22f98236ce12cb7de3c50546255802ce2707dfd6a9546b2ffc935243930aa1",
+        "afterManifestDigest": "2ab8133fb7b8464adaf8c75ffaf9a92d164df172033c237b831869feac2a58ff",
+        "recoveredManifestDigest": "8b22f98236ce12cb7de3c50546255802ce2707dfd6a9546b2ffc935243930aa1",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.31925000000001
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.02987499999995
+      },
+      "sequenceMs": 339.330459,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 1,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 111.445833
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "6918970089eb0a09b04f4df9319c08e09c56d144d5dfed21bef9f6dfe934af7e",
+        "afterManifestDigest": "6918970089eb0a09b04f4df9319c08e09c56d144d5dfed21bef9f6dfe934af7e",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 57.903958999999986
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.45858300000009
+      },
+      "sequenceMs": 292.87429199999997,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 1,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 108.60445800000002
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "e19923f63802f8af65c6e53b5719384ef22cc03b0936bfe18d0c1279871fdf85",
+        "afterManifestDigest": "69e0064c105e6967882c2350480de37610cc2e155fa6b6a38875c21b31720129",
+        "recoveredManifestDigest": "e19923f63802f8af65c6e53b5719384ef22cc03b0936bfe18d0c1279871fdf85",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.7455829999999
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 111.77800000000025
+      },
+      "sequenceMs": 344.9170829999998,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "reset-all-baseline",
+      "round": 1,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.346040999999786,
+        "decisionMs": 5.037209000000075,
+        "totalMs": 9.383249999999862
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.3147089999997661,
+        "decisionMs": 4.122332999999799,
+        "totalMs": 4.437041999999565
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 3.968583999999737,
+        "decisionMs": 4.879249999999956,
+        "totalMs": 8.847833999999693
+      },
+      "sequenceMs": 23.102665999999772,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 2,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 106.01020900000003
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "b76144bd067f97650689e16080f66c20f7b6828d0c0c8264fdb22373aa410055",
+        "afterManifestDigest": "e78e901884bcad9ab9629d36546058ca05b269c16fc0e8059f6ba3e99bef5de4",
+        "recoveredManifestDigest": "b76144bd067f97650689e16080f66c20f7b6828d0c0c8264fdb22373aa410055",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.40091600000005
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 111.64016700000002
+      },
+      "sequenceMs": 340.7646669999999,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "reset-all-baseline",
+      "round": 2,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.7582500000003165,
+        "decisionMs": 4.757208999999875,
+        "totalMs": 9.515459000000192
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.3093330000001515,
+        "decisionMs": 3.949500000000171,
+        "totalMs": 4.2588330000003225
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.420916000000034,
+        "decisionMs": 4.361209000000144,
+        "totalMs": 8.782125000000178
+      },
+      "sequenceMs": 22.958999999999833,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 2,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 106.72479199999998
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "5f81a92c07f920cc6fb366e23a17cdd554e19f6576a0fdb75f90ac021548da57",
+        "afterManifestDigest": "5f81a92c07f920cc6fb366e23a17cdd554e19f6576a0fdb75f90ac021548da57",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 53.43554099999983
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.70566699999972
+      },
+      "sequenceMs": 283.2944160000002,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    },
+    {
+      "condition": "reset-all-baseline",
+      "round": 3,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.652458999999908,
+        "decisionMs": 4.555166000000099,
+        "totalMs": 9.207625000000007
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.2699999999999818,
+        "decisionMs": 3.986750000000029,
+        "totalMs": 4.256750000000011
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.4272500000001855,
+        "decisionMs": 4.599041999999827,
+        "totalMs": 9.026292000000012
+      },
+      "sequenceMs": 22.860041999999794,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 3,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 115.63379200000008
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "9237c4b58f3947ccf364e6c7a5684bfeefb5235c7dc3b7561c6c88bff678890b",
+        "afterManifestDigest": "9237c4b58f3947ccf364e6c7a5684bfeefb5235c7dc3b7561c6c88bff678890b",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 47.44270800000004
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 109.31449999999995
+      },
+      "sequenceMs": 287.41333299999997,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 3,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 104.81654100000014
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "e8f590aa136aed99e1c6f1d3845df61b21c86e2ac9b45bca42723b8ee036a021",
+        "afterManifestDigest": "ae43d6ebf0d3c93ea0f9f5d370e6ec2306c92d4ed5ad121b57d2e842476ddf02",
+        "recoveredManifestDigest": "e8f590aa136aed99e1c6f1d3845df61b21c86e2ac9b45bca42723b8ee036a021",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 119.69700000000012
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 112.25220899999977
+      },
+      "sequenceMs": 353.9757499999996,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 4,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 111.44987500000025
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "8c2dd68d0339bda2fff0ffad559802fd67891349452ce6cd7235e562b0f8fddd",
+        "afterManifestDigest": "8c2dd68d0339bda2fff0ffad559802fd67891349452ce6cd7235e562b0f8fddd",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 52.45249999999987
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 103.28929100000005
+      },
+      "sequenceMs": 282.64616600000045,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 4,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 104.71691600000031
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "0a752b486ece15b77a7a80c5be61419bc50c9f236fcc9b61b4a95e8d783dd2a8",
+        "afterManifestDigest": "4a8ffbfa0c02955ccf5d31c290488ae3a0ea238cdd373229e37734b98d51a2ad",
+        "recoveredManifestDigest": "0a752b486ece15b77a7a80c5be61419bc50c9f236fcc9b61b4a95e8d783dd2a8",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 107.17954100000043
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 109.05274999999983
+      },
+      "sequenceMs": 336.5462500000003,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "reset-all-baseline",
+      "round": 4,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.335416999999325,
+        "decisionMs": 4.957833000000392,
+        "totalMs": 9.293249999999716
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.31108300000050804,
+        "decisionMs": 4.384624999999687,
+        "totalMs": 4.695708000000195
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.305292000000009,
+        "decisionMs": 5.2358329999997295,
+        "totalMs": 9.541124999999738
+      },
+      "sequenceMs": 24.38495800000055,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "run-guard-post-run",
+      "round": 5,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 103.82841599999938
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_AND_RESTORE",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "workerSpawnedReceipt": null,
+        "protectedBaselineVerifiedUnchanged": null,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 1,
+        "changedPathCount": 1,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "rolled_back",
+        "beforeManifestDigest": "a98c40844fe365ea9ed393959d7b490be04c8443865245c92c832c74426ca58c",
+        "afterManifestDigest": "ceed535279922b3f2d0100c4a71a7436ab423fb5bd26f31f571f8a2d9d35a0f6",
+        "recoveredManifestDigest": "a98c40844fe365ea9ed393959d7b490be04c8443865245c92c832c74426ca58c",
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "totalMs": 101.99266700000044
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 103.13195799999994
+      },
+      "sequenceMs": 322.8069580000001,
+      "runtimePath": "actual AgentService plus FixtureRunner worker dispatch and RunGuard post-run rollback"
+    },
+    {
+      "condition": "reset-all-baseline",
+      "round": 5,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 3.837166999999681,
+        "decisionMs": 3.912583000000268,
+        "totalMs": 7.749749999999949
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 32,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "revoked",
+        "effectSinkCloseDisposition": "unredeemed",
+        "effectSinkBearerExposed": false,
+        "actionMs": 0.2430420000000595,
+        "decisionMs": 4.387208000000101,
+        "totalMs": 4.63025000000016
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RESET_ALL_AND_WITHHOLD",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 33,
+        "runnerReturnedOutput": true,
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "actionMs": 4.5425420000001395,
+        "decisionMs": 4.444166000000223,
+        "totalMs": 8.986708000000363
+      },
+      "sequenceMs": 21.722874999999476,
+      "runtimePath": "actual host capability plus ProcessLocalEffectSinkBroker plus direct FixtureRunner, followed by harness-owned fail-closed full workspace reset"
+    },
+    {
+      "condition": "effect-firewall-pre-dispatch",
+      "round": 5,
+      "initialSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 102.93304199999966
+      },
+      "threat": {
+        "executed": true,
+        "policyDecision": "DENY_BEFORE_DISPATCH",
+        "threatDetected": true,
+        "contained": true,
+        "protectedStateIntact": true,
+        "outputRetained": false,
+        "outputPublished": false,
+        "workerDispatchCount": 0,
+        "workerSpawnedReceipt": false,
+        "protectedBaselineVerifiedUnchanged": true,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "changedPathCount": 0,
+        "receiptVerdict": "denied",
+        "receiptRecovery": "not_needed",
+        "beforeManifestDigest": "946b5e3a465a0dda40a7266d3d95c2cbca86facae4b59c96d0cb02f41bcd1ebe",
+        "afterManifestDigest": "946b5e3a465a0dda40a7266d3d95c2cbca86facae4b59c96d0cb02f41bcd1ebe",
+        "recoveredManifestDigest": null,
+        "effectSinkState": null,
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 52.68791699999929
+      },
+      "laterSafe": {
+        "executed": true,
+        "policyDecision": "RETAIN",
+        "threatDetected": false,
+        "contained": null,
+        "protectedStateIntact": true,
+        "outputRetained": true,
+        "outputPublished": true,
+        "workerDispatchCount": 1,
+        "staleEscapes": 0,
+        "logicalRecoveryTargets": 0,
+        "receiptVerdict": "retained",
+        "receiptRecovery": "not_needed",
+        "effectSinkState": "committed",
+        "effectSinkCloseDisposition": null,
+        "effectSinkBearerExposed": false,
+        "totalMs": 109.43354100000033
+      },
+      "sequenceMs": 279.2390409999998,
+      "runtimePath": "actual AgentService plus FixtureRunner proposal seam, Effect Firewall decision, and RunGuard pre-dispatch receipt"
+    }
+  ],
+  "proofBoundary": {
+    "classification": "synthetic deterministic local three-condition benchmark",
+    "externalCalls": 0,
+    "modelCalls": 0,
+    "credentialsRead": false,
+    "latencyControlled": false,
+    "claimsSupported": [
+      "fixed-fixture typed protected-action detection and containment",
+      "pre-dispatch fixture-worker avoidance for the exact typed Effect Firewall prompt",
+      "post-run protected-state restoration through the existing RunGuard path",
+      "same-Agent later-safe-run continuity for both NerveLoop conditions",
+      "cooperative exact fixture writes commit through sanitized one-use sink receipts; the post-run protected mutation leaves its unredeemed sink grant revoked",
+      "logical path-target comparison against the explicit reset-all baseline",
+      "descriptive local wall-clock observations"
+    ],
+    "claimsNotSupported": [
+      "production security or hardened sandbox isolation",
+      "model-backed agent safety or quality",
+      "cloud, TikTok, distributed, GPU, energy, provider, or cost performance",
+      "presentation quality, judge acceptance, deployment, or submission",
+      "syscall, byte-I/O, CPU, memory, energy, or monetary savings",
+      "fair performance ranking between the direct baseline and AgentService conditions"
+    ]
+  }
+}

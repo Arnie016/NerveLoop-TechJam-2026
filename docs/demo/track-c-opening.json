@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 3,
+  "contract": "nerveloop-track-1-effect-firewall-candidate-v3",
+  "selectedTrack": "Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware",
+  "scenario": {
+    "name": "The Kill Switch",
+    "officialTrackLabel": false
+  },
+  "artifactRole": "source-bound-local-candidate-contract",
+  "openingCard": {
+    "eyebrow": "TRACK #1 · AGENT LAUNCHPAD",
+    "title": "The agent can propose. Only policy can cause effects.",
+    "project": "NerveLoop Effect Firewall",
+    "status": "INTERCEPTED BEFORE DISPATCH"
+  },
+  "typedProposal": {
+    "action": "delete_mock_asset",
+    "targetClass": "protected",
+    "policy": "effect-firewall-v1",
+    "expectedVerdict": "denied"
+  },
+  "requiredDemoSequence": [
+    {
+      "beat": "normal-agent-alive",
+      "proof": "A normal Run on the selected Agent is retained."
+    },
+    {
+      "beat": "typed-protected-effect-proposed",
+      "proof": "The same Agent proposes delete_mock_asset against targetClass protected."
+    },
+    {
+      "beat": "pre-dispatch-denial",
+      "proof": "Host-owned Effect Firewall denies the proposal before runner dispatch."
+    },
+    {
+      "beat": "denial-receipt",
+      "proof": "workerSpawned is false, worker dispatch delta is zero, before and after manifests match, changedFiles is empty, and recovery is not_needed."
+    },
+    {
+      "beat": "safe-continuation",
+      "proof": "The same Agent completes and retains a later safe Run. Its cooperative exact sink-gated demo-result.md write follows ISSUE > CLAIM > CONSUME > COMMIT; the normal and later-safe receipts are committed and no opaque grant is persisted."
+    },
+    {
+      "beat": "terminal-sink-revocation",
+      "proof": "The raw ambient filesystem bypass does not redeem its sink grant; host close records revoked, unredeemed, and EFFECT_SINK_CLOSED before RunGuard handles the undeclared drift."
+    },
+    {
+      "beat": "second-line-backstop",
+      "proof": "A separate admitted fault uses a raw ambient filesystem bypass and reaches a worker; RunGuard withholds output and rolls the bounded checkpoint back. This does not remove ambient filesystem authority."
+    },
+    {
+      "beat": "three-condition-kpi",
+      "proof": "Six rounds compare reset-all, Effect Firewall, and RunGuard without converting logical path counts into performance claims."
+    }
+  ],
+  "benchmarkContract": {
+    "rounds": 6,
+    "conditionOrder": [
+      "reset-all baseline",
+      "Effect Firewall",
+      "RunGuard rollback"
+    ],
+    "threatDetectionPercent": [
+      0,
+      100,
+      100
+    ],
+    "threatWorkerDispatchPercent": [
+      100,
+      0,
+      100
+    ],
+    "logicalRecoveryTargetsP50": [
+      32,
+      0,
+      1
+    ],
+    "staleEscapes": [
+      0,
+      0,
+      0
+    ],
+    "latencyClaimedAsPerformanceImprovement": false
+  },
+  "candidate": {
+    "video": "docs/demo/nerveloop-effect-firewall-candidate.mp4",
+    "videoSha256": "1884b05ad3e8350c8e4b0aa8322d1b47388f1ff9392f7be985cc73467b8df36e",
+    "sidecar": "docs/demo/nerveloop-effect-firewall-candidate.json",
+    "sidecarSha256": "e27856e8720b060a7b197efde3be9553e1c5088ce5fb27714178a38f833d5a92",
+    "sidecarSchema": "nerveloop.effect-firewall-provenance-cleared-candidate.v1",
+    "sidecarKind": "local-source-bound-procedural-effect-firewall-candidate",
+    "preflightSchema": "nerveloop.effect-firewall-provenance-cleared-preflight.v1",
+    "storyContractSha256": "3e1ba0ee2b921e96236135c01ae61904bab52581e49716a6dd09b05e4dc0bcf8",
+    "durationSeconds": 139.875,
+    "maximumDurationSeconds": 180,
+    "videoCodec": "h264",
+    "pixelFormat": "yuv420p",
+    "frameRate": "24/1",
+    "audioCodec": "aac",
+    "audioSampleRate": 48000,
+    "audioChannels": 2,
+    "width": 1920,
+    "height": 1080,
+    "sourceBindingCount": 10,
+    "sampleFrameCount": 7,
+    "releaseAssets": {
+      "storyStill": {
+        "path": "docs/assets/nerveloop-effect-firewall-story.png",
+        "sha256": "cec5fa4530663bda917ea4cf79ffeb027f501ff3c7de77a5ea8507a550983847",
+        "sceneId": "05-proof-surface",
+        "generatedBy": "scripts/render-effect-firewall-candidate.mjs --write-story-still",
+        "imported": false
+      }
+    },
+    "renderingProvenance": {
+      "importedScreenshots": 0,
+      "importedImages": 0,
+      "systemFontResolution": false,
+      "bitmapFont": {
+        "path": "research/evidence/2026-09-01-provenance-cleared-media-experiment/font8x8_basic.h",
+        "sha256": "49d8df366296b203ca3211bc0672cf2a762135bf12710735b6292756b19dffd5",
+        "upstream": "https://github.com/dhepper/font8x8",
+        "upstreamCommit": "8e279d2d864e79128e96188a6b9526cfa3fbfef9",
+        "upstreamDeclaration": "Public Domain",
+        "declarationIndependentlyAdjudicated": false
+      }
+    },
+    "sceneIds": [
+      "01-incident",
+      "02-principle",
+      "03-typed-proposal",
+      "04-monotone-gate",
+      "05-proof-surface",
+      "06-later-safe",
+      "07-runguard",
+      "08-architecture",
+      "09-six-round-kpi",
+      "10-adversarial",
+      "11-boundary",
+      "12-close"
+    ],
+    "voice": "none",
+    "publicUploadClaimed": false,
+    "evidenceBindings": {
+      "functionalReceiptSha256": "b0f6f2a84a02210ca26f85afc6c8c6e67d03a5fc5afd6dd4fba4183b4573bfc5",
+      "benchmarkSha256": "5ecebd210ced6a7752fcbc7fff815ba3a1bb1260417ddc1158550567c9a8ac24",
+      "fixtureRunnerSha256": "2cff0b18be2803bffde2835d74362ffcbff401beff51414b5e3ac5dd73113813"
+    }
+  },
+  "proofBoundary": {
+    "browserFlow": "deterministic local no-model AgentService fixture",
+    "providerDispatch": false,
+    "candidateIsLocalOnly": true,
+    "continuousHumanPlaybackReviewed": false,
+    "contactSheetIsContinuousPlayback": false,
+    "claimsNotSupported": [
+      "TikTok repository, data, API, or production access",
+      "model-backed safety or model quality",
+      "hardened sandbox or hostile host-process isolation",
+      "OS confinement, cross-process enforcement, or removal of ambient filesystem authority",
+      "proof against concurrent ancestor-swap TOCTOU",
+      "production, cloud, fleet, GPU, energy, cost, or latency performance",
+      "voice or narration",
+      "public YouTube upload or Devpost submission"
+    ]
+  },
+  "releaseGates": {
+    "humanPlaybackReview": false,
+    "publicYoutubeUploadVerified": false,
+    "devpostSubmissionVerified": false
+  },
+  "preservation": {
+    "stableStoryboard": "docs/demo/submission-storyboard.json",
+    "stableVideo": "docs/demo/nerveloop-submission-draft.mp4",
+    "stableVideoSha256": "ed34f33a709719569806e21fdc738cca7b6e9c3a5aeda00860e84f1e6ecca2c7",
+    "stableDurationSeconds": 159,
+    "fallbackOnly": true,
+    "currentNarrativeReflectedByStableArtifacts": false,
+    "stableArtifactsModifiedByThisContract": false
+  }
+}
