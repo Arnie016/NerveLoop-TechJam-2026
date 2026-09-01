@@ -1,5 +1,34 @@
 # Track #1 source release gate
 
+## Current external state — 2026-09-01 SGT
+
+The release actions below have now been completed with entrant authorization:
+
+- reviewed no-video source is public at
+  <https://github.com/Arnie016/NerveLoop-TechJam-2026>;
+- public `main` is commit
+  `38cbdb4b5113922e67cbd5fceb3cf1ab6a005037`;
+- the remote `Verify NerveLoop` workflow completed successfully at
+  <https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/runs/33470693545>;
+- the 156-second captioned demo is Unlisted at
+  <https://youtu.be/5kj5CO14tBU>, and YouTube reported no copyright issues
+  during its upload check; and
+- the public Devpost portfolio page at
+  <https://devpost.com/software/nerveloop-the-effect-firewall-for-ai-agents>
+  was saved with the video, repository, rewritten story and four gallery cards.
+
+An unauthenticated read returned HTTP 200 and found both the YouTube video ID
+and repository URL in the public Devpost page. This proves the portfolio page,
+not an organizer-approved update to the frozen pre-deadline hackathon
+submission. Submission `1165259` was made before the cutoff; whether the later
+portfolio edits are included in judging still requires organizer confirmation.
+
+The stable fallback remains local and byte-identical at SHA-256
+`ed34f33a709719569806e21fdc738cca7b6e9c3a5aeda00860e84f1e6ecca2c7`.
+
+The remainder of this document preserves the pre-publication gate design and
+its proof boundaries.
+
 This gate exists because the current checkout is a working lab, not a ready-made
 public repository. A useful demo, a passing focused test and a locally present
 file do not answer the release question: **which exact files can a stranger

@@ -5,6 +5,9 @@ from checks that require the local operational media closure.
 
 ## Public CI
 
+The current public workflow completed successfully for commit `38cbdb4`:
+<https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/runs/33470693545>.
+
 The `Verify NerveLoop` workflow installs the locked Node 22 dependencies and
 runs:
 
