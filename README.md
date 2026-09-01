@@ -191,7 +191,7 @@ Both process-local authority registries are capped at 1,024 entries and do not y
 The published [156-second H.264/AAC demo](https://youtu.be/5kj5CO14tBU) uses
 sixteen burned-in captions. Its full audio/video decode passed, its audio stream
 is byte-identical to the locally synthesized source bed, and YouTube reported no
-copyright issues during upload. It is Unlisted and embedded in the public
+copyright issues during upload. It is Public and embedded in the public
 [Devpost project page](https://devpost.com/software/nerveloop-the-effect-firewall-for-ai-agents).
 The TikTok TechJam project was submitted to Devpost before the deadline; this
 repository does not claim that the later portfolio-page edit changed the frozen

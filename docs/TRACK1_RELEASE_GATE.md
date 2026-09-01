@@ -7,10 +7,10 @@ The release actions below have now been completed with entrant authorization:
 - reviewed no-video source is public at
   <https://github.com/Arnie016/NerveLoop-TechJam-2026>;
 - public `main` is commit
-  `38cbdb4b5113922e67cbd5fceb3cf1ab6a005037`;
+  `b302972e3f97542f0e95722423683251bb9fa793`;
 - the remote `Verify NerveLoop` workflow completed successfully at
-  <https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/runs/33470693545>;
-- the 156-second captioned demo is Unlisted at
+  <https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/runs/33470830329>;
+- the 156-second captioned demo is Public at
   <https://youtu.be/5kj5CO14tBU>, and YouTube reported no copyright issues
   during its upload check; and
 - the public Devpost portfolio page at

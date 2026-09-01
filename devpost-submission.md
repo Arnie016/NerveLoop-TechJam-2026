@@ -384,8 +384,8 @@ least 0.25 seconds, and a successful full audio/video decode. The rollback is
 preserved in a dedicated frame and receipt; because the manifest's final DOM
 query occurs after the later-safe view, its `rollbackObserved` field is false.
 The captioned package passed full local audio/video decode. YouTube completed
-its upload check with no copyright issues found, and the video was published as
-Unlisted with a custom thumbnail and explicit local-fixture proof boundary.
+its upload check with no copyright issues found, and the video is Public with a
+custom thumbnail and explicit local-fixture proof boundary.
 Its exact human voiceover map is in
 [`research/2026-09-01-continuous-candidate-voiceover.md`](research/2026-09-01-continuous-candidate-voiceover.md);
 no voice was generated or recorded in this pass.
@@ -408,7 +408,7 @@ archive rather than this public-facing story.
 ## Submission Readiness Notes
 
 The deterministic local fixture and evidence are prepared. The reviewed source
-is public, the Unlisted video is public by link, and the editable Devpost
+and YouTube video are Public, and the editable Devpost
 portfolio project page contains the repository, video, rewritten story and four
 gallery cards. The official Runtime/Ark real-Agent gate, hostile-process
 isolation, entrant details, and organizer confirmation that post-deadline edits
