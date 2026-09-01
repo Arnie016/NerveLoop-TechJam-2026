@@ -52,6 +52,10 @@ did not truncate an earlier receipt.
   its own five-second exit backstop.
 - The child contains no process-spawn, network, credential, provider, file
   mutation, or service-port behavior.
+- The child inherits the parent process environment because this standalone
+  harness does not override `env`. Neither script reads, logs, or uses
+  credentials; `credentials: false` in the receipt means no credential use was
+  implemented or observed, not that the child environment was sanitized.
 - The runner appends its receipt only after completion or a bounded failure.
 
 ## Separate product-harness evidence
