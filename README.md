@@ -4,6 +4,18 @@
 
 NerveLoop is lightweight middleware for **Track #1: Agent Launchpad: Design and Build Lightweight Agent Middleware** at TikTok TechJam 2026.
 
+## Judge quick links
+
+- **Watch:** [public 2:36 end-to-end demo](https://youtu.be/5kj5CO14tBU)
+- **Read:** [public Devpost project](https://devpost.com/software/nerveloop-the-effect-firewall-for-ai-agents)
+- **Verify:** [evidence and proof-boundary map](docs/PUBLIC_VERIFICATION.md)
+- **Reproduce:** [five-step local judge quickstart](docs/JUDGE_QUICKSTART.md)
+- **Check:** [public verification workflow](https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/workflows/verify.yml)
+
+This is the entrant's NerveLoop source repository. The separate
+`RrankPyramid/CodeJam` repository is the organizer starter kit from which this
+submission was extended.
+
 It extends the organizer-provided CodeJam Starter Kit rather than replacing its
 agent lifecycle: the existing `AgentService` and Run flow remain the host seam,
 while NerveLoop adds typed effect admission, one-use authority, an exact

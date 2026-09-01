@@ -6,10 +6,10 @@ The release actions below have now been completed with entrant authorization:
 
 - reviewed no-video source is public at
   <https://github.com/Arnie016/NerveLoop-TechJam-2026>;
-- public `main` is commit
-  `b302972e3f97542f0e95722423683251bb9fa793`;
-- the remote `Verify NerveLoop` workflow completed successfully at
-  <https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/runs/33470830329>;
+- public `main` preserves the reviewed source and its auditable Git history;
+- the public `Verify NerveLoop` workflow is available at
+  <https://github.com/Arnie016/NerveLoop-TechJam-2026/actions/workflows/verify.yml>
+  and was checked passing on 1 September 2026;
 - the 156-second captioned demo is Public at
   <https://youtu.be/5kj5CO14tBU>, and YouTube reported no copyright issues
   during its upload check; and
