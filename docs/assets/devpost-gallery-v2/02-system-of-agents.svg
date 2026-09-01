@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <defs><linearGradient id="veil" x1="0" x2="1"><stop stop-color="#05080d" stop-opacity=".98"/><stop offset="1" stop-color="#07151d" stop-opacity=".68"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="15" stdDeviation="22" flood-color="#000" flood-opacity=".3"/></filter></defs>
+  <image href="nerveloop-shader-background.png" width="1800" height="1200" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1800" height="1200" fill="url(#veil)"/>
+  <g font-family="Inter, SF Pro Display, Helvetica, Arial, sans-serif">
+    <text x="112" y="118" fill="#61e6db" font-size="28" font-weight="700" letter-spacing="6">THE SYSTEMS-ENGINEERING SUPERPOWER</text>
+    <text x="112" y="250" fill="#f5fbff" font-size="84" font-weight="690">The host owns authority.</text>
+    <text x="112" y="342" fill="#f5fbff" font-size="84" font-weight="690">Agents only propose.</text>
+    <text x="112" y="412" fill="#a9bac5" font-size="30">Five narrow roles turn an open-ended workflow into an auditable process.</text>
+
+    <g transform="translate(112 520)" filter="url(#shadow)">
+      <g>
+        <rect width="270" height="300" rx="30" fill="#0b151e" stroke="#324650"/>
+        <circle cx="52" cy="54" r="22" fill="#15333b"/><text x="52" y="63" text-anchor="middle" fill="#67e5dc" font-size="28" font-weight="700">1</text>
+        <text x="28" y="120" fill="#eff9fc" font-size="31" font-weight="680">Planner</text>
+        <text x="28" y="168" fill="#91a7b1" font-size="23">Proposes the next</text><text x="28" y="202" fill="#91a7b1" font-size="23">effect and intent.</text>
+        <text x="28" y="260" fill="#5fd9d0" font-size="20" font-weight="700">NO DIRECT POWER</text>
+      </g>
+      <path d="M286 150h46" stroke="#55707a" stroke-width="4"/><path d="M318 135l20 15-20 15" fill="none" stroke="#55707a" stroke-width="4"/>
+      <g transform="translate(350)">
+        <rect width="270" height="300" rx="30" fill="#0b1d20" stroke="#43cfc3" stroke-width="2"/>
+        <circle cx="52" cy="54" r="22" fill="#16443f"/><text x="52" y="63" text-anchor="middle" fill="#85fff2" font-size="28" font-weight="700">2</text>
+        <text x="28" y="120" fill="#eff9fc" font-size="31" font-weight="680">Effect Firewall</text>
+        <text x="28" y="168" fill="#9bc0bd" font-size="23">Checks one-use</text><text x="28" y="202" fill="#9bc0bd" font-size="23">capability + policy.</text>
+        <text x="28" y="260" fill="#68e5d9" font-size="20" font-weight="700">ADMIT OR DENY</text>
+      </g>
+      <path d="M636 150h46" stroke="#55707a" stroke-width="4"/><path d="M668 135l20 15-20 15" fill="none" stroke="#55707a" stroke-width="4"/>
+      <g transform="translate(700)">
+        <rect width="270" height="300" rx="30" fill="#0b151e" stroke="#324650"/>
+        <circle cx="52" cy="54" r="22" fill="#15333b"/><text x="52" y="63" text-anchor="middle" fill="#67e5dc" font-size="28" font-weight="700">3</text>
+        <text x="28" y="120" fill="#eff9fc" font-size="31" font-weight="680">Worker</text>
+        <text x="28" y="168" fill="#91a7b1" font-size="23">Receives only the</text><text x="28" y="202" fill="#91a7b1" font-size="23">admitted capability.</text>
+        <text x="28" y="260" fill="#5fd9d0" font-size="20" font-weight="700">EXACT EFFECT</text>
+      </g>
+      <path d="M986 150h46" stroke="#55707a" stroke-width="4"/><path d="M1018 135l20 15-20 15" fill="none" stroke="#55707a" stroke-width="4"/>
+      <g transform="translate(1050)">
+        <rect width="270" height="300" rx="30" fill="#0b151e" stroke="#324650"/>
+        <circle cx="52" cy="54" r="22" fill="#15333b"/><text x="52" y="63" text-anchor="middle" fill="#67e5dc" font-size="28" font-weight="700">4</text>
+        <text x="28" y="120" fill="#eff9fc" font-size="31" font-weight="680">RunGuard</text>
+        <text x="28" y="168" fill="#91a7b1" font-size="23">Detects drift, then</text><text x="28" y="202" fill="#91a7b1" font-size="23">restores or holds.</text>
+        <text x="28" y="260" fill="#5fd9d0" font-size="20" font-weight="700">BOUNDED RECOVERY</text>
+      </g>
+      <path d="M1336 150h46" stroke="#55707a" stroke-width="4"/><path d="M1368 135l20 15-20 15" fill="none" stroke="#55707a" stroke-width="4"/>
+      <g transform="translate(1400)">
+        <rect width="176" height="300" rx="30" fill="#101822" stroke="#d7a84f"/>
+        <circle cx="48" cy="54" r="22" fill="#49371a"/><text x="48" y="63" text-anchor="middle" fill="#ffd983" font-size="28" font-weight="700">5</text>
+        <text x="24" y="120" fill="#eff9fc" font-size="28" font-weight="680">Receipt</text>
+        <text x="24" y="168" fill="#b6aa91" font-size="21">Records cause,</text><text x="24" y="199" fill="#b6aa91" font-size="21">decision, result.</text>
+        <text x="24" y="260" fill="#f0c96d" font-size="18" font-weight="700">EVIDENCE</text>
+      </g>
+    </g>
+    <g transform="translate(112 900)">
+      <rect width="1576" height="118" rx="26" fill="#09131a" fill-opacity=".82" stroke="#263b44"/>
+      <text x="36" y="49" fill="#65e1d8" font-size="22" font-weight="700">WHY THIS MATTERS</text>
+      <text x="36" y="86" fill="#dce9ed" font-size="27">Prevention, recovery, and safe continuation are separate states — each with its own proof.</text>
+    </g>
+  </g>
+</svg>

@@ -15,6 +15,34 @@ Most agent safety demos end with a clean folder. That leaves an important questi
 
 ![NerveLoop Effect Firewall story](docs/assets/nerveloop-effect-firewall-story.png)
 
+## Why this is more than another agent demo
+
+The model is not the security boundary. NerveLoop treats an autonomous engineer
+as a process that can propose powerful actions, while the host retains the
+authority to admit, execute, verify and record each effect.
+
+That separation creates three concrete advantages:
+
+- **Useful autonomy survives a mistake.** One unsafe action can be denied without
+  deleting the Agent, its context or its later safe work.
+- **The result is causally inspectable.** Prevention, post-run recovery and safe
+  continuation have different states and receipts, so a judge can tell whether
+  an effect never ran or merely got repaired afterward.
+- **The safety claim is falsifiable.** Deterministic fixtures, failure injection,
+  mutation testing and exact evidence files expose where the mechanism works and
+  where it stops.
+
+<table>
+  <tr>
+    <td><img src="docs/assets/devpost-gallery-v2/01-one-bad-action.png" alt="One bad action should not kill a useful agent" /></td>
+    <td><img src="docs/assets/devpost-gallery-v2/02-system-of-agents.png" alt="The host owns authority and agents only propose" /></td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/devpost-gallery-v2/03-measured-win.png" alt="NerveLoop deterministic measured results" /></td>
+    <td><img src="docs/assets/devpost-gallery-v2/04-proof-boundary.png" alt="NerveLoop proven and open validation boundary" /></td>
+  </tr>
+</table>
+
 ## The three-minute story
 
 Official scope: **Problem Statement #1: Agent Launchpad; selected middleware Track C — The Kill Switch (Safety and Sandboxing).**
