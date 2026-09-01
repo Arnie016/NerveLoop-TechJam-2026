@@ -22,6 +22,9 @@ UI, retained normal work, triggered the protected denial, showed a separate
 rollback, and retained a later safe Run. The 156-second review candidate adds a
 17.1-second continuous Chrome compositor capture of that functional
 browser-to-API-to-AgentService-to-FixtureRunner path.
+The rollback is preserved in its dedicated frame and receipt; the manifest's
+final DOM query runs after the later-safe view and therefore reports
+`rollbackObserved:false`, so we do not present it as a final-DOM assertion.
 
 The design combines a monotone action-target policy with an opaque, one-use
 grant bound to one Run, Agent, file, and payload. Across a 156-case/sequence
@@ -347,7 +350,8 @@ reviewed source has been pushed; until then this field remains pending.
 
 **Public YouTube URL:** Pending.
 
-The selected 139.875-second procedural candidate follows one story:
+The recommended upload candidate is a 156.000-second technical cut that follows
+one story:
 
 1. an agent with useful repository context proposes a dangerous next move;
 2. the proposal becomes `delete_mock_asset / protected`;
@@ -356,29 +360,23 @@ The selected 139.875-second procedural candidate follows one story:
 5. a separate admitted raw write demonstrates RunGuard's rollback backstop; and
 6. the closing comparison shows **32 / 0 / 1** and the honest local-only limits.
 
-It is 1920x1080 H.264 with stereo AAC audio. Its verifier binds the declared
-source set, including the Effect Sink, plus seven decoded sample frames.
-
-The strongest unpromoted technical review candidate is now 156.000 seconds. It
-adds a 17.116667-second browser-only Chrome DevTools Protocol screencast from an
-exact clean bundle. The capture records 489 real compositor frames, averages
-28.576 observed frames per second, and transparently holds the latest observed
-frame on a 60 fps output grid. The combined film is encoded at 24 fps with the
-existing audio bed. A duplicated excerpt from that bed removes the first
-continuous experiment's 16.141-second silent gap. The retained receipt records
--22.6 LUFS integrated loudness, -9.2 dBTP true peak, and no silence of at least
-0.25 seconds. It passed full audio/video machine decode and still needs
-continuous human playback, rights review, and an explicit promotion decision.
+It is 1920x1080 H.264 at 24 fps with stereo AAC audio. Its 17.116667-second
+browser segment comes from a Chrome DevTools Protocol screencast of an exact
+clean bundle: 489 real compositor frames over 17.112 seconds, held on a 60 fps
+output grid without inventing intermediate UI states. The retained receipt
+records -22.6 LUFS integrated loudness, -9.2 dBTP true peak, no silence of at
+least 0.25 seconds, and a successful full audio/video decode. The rollback is
+preserved in a dedicated frame and receipt; because the manifest's final DOM
+query occurs after the later-safe view, its `rollbackObserved` field is false.
+The cut still needs continuous human playback, rights review, and an explicit
+promotion decision before upload.
 Its exact human voiceover map is in
 [`research/2026-09-01-continuous-candidate-voiceover.md`](research/2026-09-01-continuous-candidate-voiceover.md);
 no voice was generated or recorded in this pass.
 
-The earlier 173.875-second four-frames-per-second companion remains preserved
-as a superseded experiment; it is not the preferred review candidate.
-
-The untouched stable 159-second MP4 remains the older private fallback. None of
-these local candidates proves Ark/model execution, TikTok access, a public
-upload, or submission.
+This local candidate does not prove Ark/model execution, TikTok access, a
+public upload, or submission. Earlier experiments and the stable fallback stay
+in the private evidence archive rather than this public-facing story.
 
 ## Screenshot Shot List
 
