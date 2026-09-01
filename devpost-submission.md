@@ -258,6 +258,21 @@ successfully. Removing the workspace parent produced the expected fail-closed
 tests, and the post-run mutations prove detection and recovery rather than
 pre-dispatch prevention.
 
+Separately, we reran the local POSIX process-supervisor drill against both the
+source and compiled server runtimes. Each focused suite passed 3/3 scenarios:
+the harness spawned a fixed no-model CLI and one descendant, both
+SIGTERM-resistant, and observed their heartbeats stop and both PIDs disappear.
+A fresh Agent then completed a normal Run. This is provider-free
+integration-test evidence. Those termination and cleanup observations are
+test-local; they are not persisted on `AgentRun` or exposed in the UI, and they
+are not an Ark/model-backed termination claim.
+
+For a smaller reproducible lifecycle receipt, the
+[`standalone owned-child termination proof`](research/evidence/2026-09-01-process-termination-proof/README.md)
+revalidates nonce-bound child identity before SIGTERM and SIGKILL, observes the
+`SIGKILL` exit, and confirms the exact PID is absent afterward. It is supporting
+process evidence, not product integration.
+
 These are finite deterministic local fixtures. They are not a provider-model or
 model-quality test. They are not proof of OS confinement, ambient-filesystem
 removal, a hardened sandbox, kernel isolation, or production security. They do
@@ -287,7 +302,8 @@ credential-free and makes no paid model call.
 - **Verification and Robustness — 20%:** positive and negative receipts
   distinguish prevention from recovery. The 156-case matrix covers policy
   denial, protected-path drift, recovery faults, zero-worker dispatch, cleanup,
-  and later-safe continuation, with local and synthetic limits stated.
+  and later-safe continuation. A separate source-and-compiled supervisor drill
+  observes owned worker/descendant cleanup, with its test-local boundary stated.
 - **Demo and Reproducibility — 15%:** the Web UI, receipts, one-page
   architecture, setup instructions, and sub-three-minute candidates tell the
   same causal story. Public playback, rights review, and an official judge run
@@ -305,6 +321,9 @@ npm test -w @launchpad/server -- --run \
 node --test scripts/track-c-condition-benchmark.test.mjs
 node --test scripts/effect-firewall-adversarial-matrix.test.mjs
 node --test scripts/effect-sink-redemption-lab.test.mjs
+npm run test -w @launchpad/server -- src/crash-recovery.test.ts
+npm run build -w @launchpad/server
+CRASH_DRILL_BUILD=1 npm run test -w @launchpad/server -- src/crash-recovery.test.ts
 npm run typecheck -w @launchpad/web
 npm run build -w @launchpad/web
 npm run submission:source-check
